@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Judge Dashboard | Self-Care Excellence Awards 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,300;1,6..12,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css" />
+<style>
+  .overview-bar {
+    background: #fff;
+    border: 1px solid rgba(17,46,26,0.08);
+    border-radius: 12px;
+    padding: 1.3rem 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .overview-bar .progress-track { flex: 1; min-width: 180px; }
+  .cat-progress-card p.count { font-size: 1.6rem; font-weight: 800; color: var(--forest); margin: 0.5rem 0 0.6rem; }
+  .cat-progress-card .progress-track { margin-bottom: 0.6rem; }
+  .cat-progress-card .status-pill { margin-bottom: 0; }
+  .cat-progress-card .badge-cat { white-space: normal; line-height: 1.35; text-align: left; }
+  .cat-progress-card .cat-name { font-size: 1.05rem; font-weight: 800; color: var(--forest); margin-top: 0.7rem; }
+  .section-heading-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+
+  /* Category progress tiles: reflow before the global 1-column breakpoint so
+     they don't get squeezed on tablet / mid-size desktop widths */
+  .cat-progress-grid { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 1150px) {
+    .cat-progress-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .cat-progress-grid { grid-template-columns: 1fr; }
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+  .pagination .btn-outline {
+    padding: 0.5rem 1.1rem;
+    font-size: 13px;
+  }
+  .pagination .btn-outline:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  .pagination-info {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--forest);
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<div id="sessionBanner" class="session-banner" style="display:none;">
+  Session expired — please sign in again.
+</div>
+
+<!-- NAV -->
+<nav id="top">
+  <a href="judge-dashboard.html" class="nav-logo">Self-Care Excellence Awards 2026</a>
+  <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="judge-dashboard.html" class="active">Dashboard</a></li>
+    <li><span class="nav-pill"><span class="flag-icon flag-ph"></span> Philippines</span></li>
+    <li><span class="nav-meta">Dr. Maria Santos</span></li>
+    <li><a href="index.html" class="btn-outline-light">Sign Out</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-hero-label">Judge Dashboard</p>
+    <h1 class="page-hero-title">Welcome, Dr. Maria Santos</h1>
+    <p class="page-hero-sub">Here is your scoring progress for Philippines.</p>
+  </div>
+</section>
+
+<main class="page-body">
+  <div class="container">
+
+    <!-- Overall progress -->
+    <div class="overview-bar">
+      <div>
+        <p style="font-size:14px;font-weight:700;color:var(--forest);">Overall Progress</p>
+        <p style="font-size:12px;color:var(--body-text);">21 of 40 submissions scored</p>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="width:52.5%; background:var(--gold);"></div>
+      </div>
+      <span style="font-size:15px;font-weight:800;color:var(--forest);">52.5%</span>
+    </div>
+
+    <!-- Category progress -->
+    <p class="section-label">Progress by Category</p>
+    <h2 class="section-title">Score Your Assigned Submissions</h2>
+    <div class="section-divider"></div>
+
+    <div class="grid-4 cat-progress-grid" style="margin-bottom: 3rem;">
+
+      <div class="card card-accent cat-progress-card">
+        <span class="badge-cat">Category 01</span>
+        <h3 class="cat-name">Empower &amp; Educate</h3>
+        <p class="count">10 / 10</p>
+        <div class="progress-track"><div class="progress-fill" style="width:100%; background:var(--forest-light);"></div></div>
+        <span class="status-pill complete"><span class="status-dot"></span>Complete</span>
+      </div>
+
+      <div class="card card-accent cat-progress-card">
+        <span class="badge-cat">Category 02</span>
+        <h3 class="cat-name">Expanding Access</h3>
+        <p class="count">4 / 10</p>
+        <div class="progress-track"><div class="progress-fill" style="width:40%; background:var(--gold);"></div></div>
+        <span class="status-pill progress"><span class="status-dot"></span>In Progress</span>
+      </div>
+
+      <div class="card card-accent cat-progress-card">
+        <span class="badge-cat">Category 03</span>
+        <h3 class="cat-name">Referral &amp; Care</h3>
+        <p class="count">0 / 10</p>
+        <div class="progress-track"><div class="progress-fill" style="width:0%; background:var(--error);"></div></div>
+        <span class="status-pill behind"><span class="status-dot"></span>Not Started</span>
+      </div>
+
+      <div class="card card-accent cat-progress-card">
+        <span class="badge-cat special">Category 04</span>
+        <h3 class="cat-name">Social Media</h3>
+        <p class="count">7 / 10</p>
+        <div class="progress-track"><div class="progress-fill" style="width:70%; background:var(--gold);"></div></div>
+        <span class="status-pill progress"><span class="status-dot"></span>In Progress</span>
+      </div>
+    </div>
+
+    <!-- Submissions table -->
+    <div class="section-heading-row">
+      <h2 class="section-title" style="margin-bottom:0;">Your Submissions</h2>
+      <p id="submissionsCount" style="font-size:12px;color:var(--body-text);">Showing 1-10 of 40</p>
+    </div>
+
+    <div class="filter-group" data-filter-group style="margin-bottom:1.5rem;">
+      <span class="filter-group-label">Category:</span>
+      <button data-filter-chip data-filter-value="all" class="filter-chip is-active">All</button>
+      <button data-filter-chip data-filter-value="CAT1" class="filter-chip">Category 01</button>
+      <button data-filter-chip data-filter-value="CAT2" class="filter-chip">Category 02</button>
+      <button data-filter-chip data-filter-value="CAT3" class="filter-chip">Category 03</button>
+      <button data-filter-chip data-filter-value="CAT4" class="filter-chip">Category 04</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table" data-submissions-table>
+        <thead>
+          <tr>
+            <th>Submission Code</th>
+            <th>Category</th>
+            <th>Entry Type</th>
+            <th>Status</th>
+            <th style="text-align:right;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-category="CAT1">
+            <td class="font-mono-code">PH-CAT1-010</td>
+            <td><span class="badge-cat">Category 01</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat1.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT1">
+            <td class="font-mono-code">PH-CAT1-004</td>
+            <td><span class="badge-cat">Category 01</span></td>
+            <td class="text-muted">Team</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat1.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT2">
+            <td class="font-mono-code">PH-CAT2-001</td>
+            <td><span class="badge-cat">Category 02</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat2.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT4">
+            <td class="font-mono-code">PH-CAT4-007</td>
+            <td><span class="badge-cat special">Category 04</span></td>
+            <td class="text-muted">Individual</td>
+            <td><span class="status-pill progress"><span class="status-dot"></span>In Progress</span></td>
+            <td style="text-align:right;"><a href="scoring-cat4.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Score Now →</a></td>
+          </tr>
+          <tr data-category="CAT3">
+            <td class="font-mono-code">PH-CAT3-006</td>
+            <td><span class="badge-cat">Category 03</span></td>
+            <td class="text-muted">Team</td>
+            <td><span class="status-pill behind"><span class="status-dot"></span>Not Started</span></td>
+            <td style="text-align:right;"><a href="scoring-cat3.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Start →</a></td>
+          </tr>
+          <tr data-category="CAT3">
+            <td class="font-mono-code">PH-CAT3-005</td>
+            <td><span class="badge-cat">Category 03</span></td>
+            <td class="text-muted">Individual</td>
+            <td><span class="status-pill behind"><span class="status-dot"></span>Not Started</span></td>
+            <td style="text-align:right;"><a href="scoring-cat3.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Start →</a></td>
+          </tr>
+          <tr data-category="CAT4">
+            <td class="font-mono-code">PH-CAT4-001</td>
+            <td><span class="badge-cat special">Category 04</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat4.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT2">
+            <td class="font-mono-code">PH-CAT2-002</td>
+            <td><span class="badge-cat">Category 02</span></td>
+            <td class="text-muted">Team</td>
+            <td><span class="status-pill progress"><span class="status-dot"></span>In Progress</span></td>
+            <td style="text-align:right;"><a href="scoring-cat2.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Score Now →</a></td>
+          </tr>
+          <tr data-category="CAT1">
+            <td class="font-mono-code">PH-CAT1-005</td>
+            <td><span class="badge-cat">Category 01</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat1.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT4">
+            <td class="font-mono-code">PH-CAT4-003</td>
+            <td><span class="badge-cat special">Category 04</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill progress"><span class="status-dot"></span>In Progress</span></td>
+            <td style="text-align:right;"><a href="scoring-cat4.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Score Now →</a></td>
+          </tr>
+          <tr data-category="CAT3">
+            <td class="font-mono-code">PH-CAT3-002</td>
+            <td><span class="badge-cat">Category 03</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill behind"><span class="status-dot"></span>Not Started</span></td>
+            <td style="text-align:right;"><a href="scoring-cat3.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Start →</a></td>
+          </tr>
+          <tr data-category="CAT3">
+            <td class="font-mono-code">PH-CAT3-009</td>
+            <td><span class="badge-cat">Category 03</span></td>
+            <td class="text-muted">Team</td>
+            <td><span class="status-pill behind"><span class="status-dot"></span>Not Started</span></td>
+            <td style="text-align:right;"><a href="scoring-cat3.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Start →</a></td>
+          </tr>
+          <tr data-category="CAT3">
+            <td class="font-mono-code">PH-CAT3-004</td>
+            <td><span class="badge-cat">Category 03</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill behind"><span class="status-dot"></span>Not Started</span></td>
+            <td style="text-align:right;"><a href="scoring-cat3.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Start →</a></td>
+          </tr>
+          <tr data-category="CAT2">
+            <td class="font-mono-code">PH-CAT2-009</td>
+            <td><span class="badge-cat">Category 02</span></td>
+            <td class="text-muted">Team</td>
+            <td><span class="status-pill progress"><span class="status-dot"></span>In Progress</span></td>
+            <td style="text-align:right;"><a href="scoring-cat2.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Score Now →</a></td>
+          </tr>
+          <tr data-category="CAT2">
+            <td class="font-mono-code">PH-CAT2-003</td>
+            <td><span class="badge-cat">Category 02</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill behind"><span class="status-dot"></span>Not Started</span></td>
+            <td style="text-align:right;"><a href="scoring-cat2.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Start →</a></td>
+          </tr>
+          <tr data-category="CAT4">
+            <td class="font-mono-code">PH-CAT4-005</td>
+            <td><span class="badge-cat special">Category 04</span></td>
+            <td class="text-muted">Team</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat4.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT4">
+            <td class="font-mono-code">PH-CAT4-006</td>
+            <td><span class="badge-cat special">Category 04</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat4.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT3">
+            <td class="font-mono-code">PH-CAT3-007</td>
+            <td><span class="badge-cat">Category 03</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill behind"><span class="status-dot"></span>Not Started</span></td>
+            <td style="text-align:right;"><a href="scoring-cat3.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Start →</a></td>
+          </tr>
+          <tr data-category="CAT2">
+            <td class="font-mono-code">PH-CAT2-004</td>
+            <td><span class="badge-cat">Category 02</span></td>
+            <td class="text-muted">Individual</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat2.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT3">
+            <td class="font-mono-code">PH-CAT3-003</td>
+            <td><span class="badge-cat">Category 03</span></td>
+            <td class="text-muted">Team</td>
+            <td><span class="status-pill behind"><span class="status-dot"></span>Not Started</span></td>
+            <td style="text-align:right;"><a href="scoring-cat3.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Start →</a></td>
+          </tr>
+          <tr data-category="CAT3">
+            <td class="font-mono-code">PH-CAT3-001</td>
+            <td><span class="badge-cat">Category 03</span></td>
+            <td class="text-muted">Individual</td>
+            <td><span class="status-pill behind"><span class="status-dot"></span>Not Started</span></td>
+            <td style="text-align:right;"><a href="scoring-cat3.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Start →</a></td>
+          </tr>
+          <tr data-category="CAT4">
+            <td class="font-mono-code">PH-CAT4-002</td>
+            <td><span class="badge-cat special">Category 04</span></td>
+            <td class="text-muted">Team</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat4.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT4">
+            <td class="font-mono-code">PH-CAT4-008</td>
+            <td><span class="badge-cat special">Category 04</span></td>
+            <td class="text-muted">Team</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat4.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT3">
+            <td class="font-mono-code">PH-CAT3-010</td>
+            <td><span class="badge-cat">Category 03</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill behind"><span class="status-dot"></span>Not Started</span></td>
+            <td style="text-align:right;"><a href="scoring-cat3.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Start →</a></td>
+          </tr>
+          <tr data-category="CAT2">
+            <td class="font-mono-code">PH-CAT2-010</td>
+            <td><span class="badge-cat">Category 02</span></td>
+            <td class="text-muted">Individual</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat2.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT2">
+            <td class="font-mono-code">PH-CAT2-007</td>
+            <td><span class="badge-cat">Category 02</span></td>
+            <td class="text-muted">Individual</td>
+            <td><span class="status-pill progress"><span class="status-dot"></span>In Progress</span></td>
+            <td style="text-align:right;"><a href="scoring-cat2.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Score Now →</a></td>
+          </tr>
+          <tr data-category="CAT4">
+            <td class="font-mono-code">PH-CAT4-010</td>
+            <td><span class="badge-cat special">Category 04</span></td>
+            <td class="text-muted">Individual</td>
+            <td><span class="status-pill behind"><span class="status-dot"></span>Not Started</span></td>
+            <td style="text-align:right;"><a href="scoring-cat4.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Start →</a></td>
+          </tr>
+          <tr data-category="CAT4">
+            <td class="font-mono-code">PH-CAT4-004</td>
+            <td><span class="badge-cat special">Category 04</span></td>
+            <td class="text-muted">Individual</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat4.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT1">
+            <td class="font-mono-code">PH-CAT1-003</td>
+            <td><span class="badge-cat">Category 01</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat1.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT1">
+            <td class="font-mono-code">PH-CAT1-001</td>
+            <td><span class="badge-cat">Category 01</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat1.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT4">
+            <td class="font-mono-code">PH-CAT4-009</td>
+            <td><span class="badge-cat special">Category 04</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat4.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT3">
+            <td class="font-mono-code">PH-CAT3-008</td>
+            <td><span class="badge-cat">Category 03</span></td>
+            <td class="text-muted">Individual</td>
+            <td><span class="status-pill behind"><span class="status-dot"></span>Not Started</span></td>
+            <td style="text-align:right;"><a href="scoring-cat3.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Start →</a></td>
+          </tr>
+          <tr data-category="CAT1">
+            <td class="font-mono-code">PH-CAT1-006</td>
+            <td><span class="badge-cat">Category 01</span></td>
+            <td class="text-muted">Individual</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat1.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT1">
+            <td class="font-mono-code">PH-CAT1-007</td>
+            <td><span class="badge-cat">Category 01</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat1.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT1">
+            <td class="font-mono-code">PH-CAT1-009</td>
+            <td><span class="badge-cat">Category 01</span></td>
+            <td class="text-muted">Individual</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat1.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT2">
+            <td class="font-mono-code">PH-CAT2-005</td>
+            <td><span class="badge-cat">Category 02</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill behind"><span class="status-dot"></span>Not Started</span></td>
+            <td style="text-align:right;"><a href="scoring-cat2.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Start →</a></td>
+          </tr>
+          <tr data-category="CAT2">
+            <td class="font-mono-code">PH-CAT2-006</td>
+            <td><span class="badge-cat">Category 02</span></td>
+            <td class="text-muted">Team</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat2.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT2">
+            <td class="font-mono-code">PH-CAT2-008</td>
+            <td><span class="badge-cat">Category 02</span></td>
+            <td class="text-muted">Self</td>
+            <td><span class="status-pill behind"><span class="status-dot"></span>Not Started</span></td>
+            <td style="text-align:right;"><a href="scoring-cat2.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Start →</a></td>
+          </tr>
+          <tr data-category="CAT1">
+            <td class="font-mono-code">PH-CAT1-002</td>
+            <td><span class="badge-cat">Category 01</span></td>
+            <td class="text-muted">Individual</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat1.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+          <tr data-category="CAT1">
+            <td class="font-mono-code">PH-CAT1-008</td>
+            <td><span class="badge-cat">Category 01</span></td>
+            <td class="text-muted">Team</td>
+            <td><span class="status-pill complete"><span class="status-dot"></span>Complete</span></td>
+            <td style="text-align:right;"><a href="scoring-cat1.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Review →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pagination" data-pagination>
+      <button data-page-prev class="btn-outline" type="button">&larr; Previous</button>
+      <span data-page-info class="pagination-info">Page 1 of 4</span>
+      <button data-page-next class="btn-outline" type="button">Next &rarr;</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-logo">Self-Care Excellence Awards 2026</div>
+  <div class="footer-note">Confidential — for authorised judges only · SwipeRx 2026</div>
+</footer>
+
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/judge-dashboard.js"></script>
+</body>
+</html>

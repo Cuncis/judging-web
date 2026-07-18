@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Dashboard | Self-Care Excellence Awards 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,300;1,6..12,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css" />
+<style>
+  .country-summary-card .flag-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+  .country-summary-card .flag { font-size: 1.6rem; }
+  .country-summary-card .judges { font-size: 12px; font-weight: 700; color: rgba(17,46,26,0.5); }
+  .country-summary-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--forest); margin-bottom: 0.2rem; }
+  .country-summary-card .subs { font-size: 12px; color: var(--body-text); margin-bottom: 0.9rem; }
+  .country-summary-card .stat-row { display: flex; justify-content: space-between; font-size: 12px; margin-top: 0.5rem; }
+  .cat-cell { font-weight: 700; text-align: center; }
+  .table-scroll-hint { display: none; font-size: 12px; font-weight: 700; color: var(--gold); margin-bottom: 0.6rem; }
+  @media (max-width: 900px) {
+    .table-scroll-hint { display: block; }
+  }
+</style>
+</head>
+<body>
+
+<div id="sessionBanner" class="session-banner" style="display:none;">
+  Session expired — please sign in again.
+</div>
+
+<!-- NAV -->
+<nav id="top">
+  <a href="admin-dashboard.html" class="nav-logo">Self-Care Excellence Awards 2026</a>
+  <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="admin-dashboard.html" class="active">Admin Dashboard</a></li>
+    <li><span class="nav-meta">SwipeRx Admin</span></li>
+    <li><a href="index.html" class="btn-outline-light">Sign Out</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner flex-between" style="flex-wrap:wrap; gap:1.5rem;">
+    <div>
+      <p class="page-hero-label">Admin Dashboard</p>
+      <h1 class="page-hero-title">Judging Progress Overview</h1>
+      <p class="page-hero-sub">Monitoring 3 countries · 9 judges · 120 submissions.</p>
+    </div>
+    <button id="exportCsvBtn" class="btn-primary">Export CSV →</button>
+  </div>
+</section>
+
+<main class="page-body">
+  <div class="container">
+
+    <!-- Country summary cards -->
+    <p class="section-label">Country Overview</p>
+    <h2 class="section-title">Progress by Country</h2>
+    <div class="section-divider"></div>
+
+    <div class="grid-3" style="margin-bottom: 3rem;">
+      <div class="card card-accent country-summary-card">
+        <div class="flag-row">
+          <span class="flag flag-icon flag-id"></span>
+          <span class="judges">3 judges</span>
+        </div>
+        <h3>Indonesia</h3>
+        <p class="subs">40 submissions</p>
+        <div class="progress-track"><div class="progress-fill" style="width:55%; background:var(--gold);"></div></div>
+        <div class="stat-row">
+          <span style="color:#8a6000; font-weight:700;">55% scored</span>
+          <span class="text-muted">22 / 40</span>
+        </div>
+      </div>
+
+      <div class="card card-accent country-summary-card">
+        <div class="flag-row">
+          <span class="flag flag-icon flag-ph"></span>
+          <span class="judges">3 judges</span>
+        </div>
+        <h3>Philippines</h3>
+        <p class="subs">40 submissions</p>
+        <div class="progress-track"><div class="progress-fill" style="width:55%; background:var(--gold);"></div></div>
+        <div class="stat-row">
+          <span style="color:#8a6000; font-weight:700;">55% scored</span>
+          <span class="text-muted">22 / 40</span>
+        </div>
+      </div>
+
+      <div class="card card-accent country-summary-card">
+        <div class="flag-row">
+          <span class="flag flag-icon flag-vn"></span>
+          <span class="judges">3 judges</span>
+        </div>
+        <h3>Vietnam</h3>
+        <p class="subs">40 submissions</p>
+        <div class="progress-track"><div class="progress-fill" style="width:56%; background:var(--gold);"></div></div>
+        <div class="stat-row">
+          <span style="color:#8a6000; font-weight:700;">56% scored</span>
+          <span class="text-muted">22 / 40</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div style="display:flex; flex-wrap:wrap; gap:2rem; margin-bottom:1.5rem;">
+      <div class="filter-group" data-filter-group>
+        <span class="filter-group-label">Country:</span>
+        <button data-filter-chip class="filter-chip is-active">All</button>
+        <button data-filter-chip class="filter-chip"><span class="flag-icon flag-id"></span></button>
+        <button data-filter-chip class="filter-chip"><span class="flag-icon flag-ph"></span></button>
+        <button data-filter-chip class="filter-chip"><span class="flag-icon flag-vn"></span></button>
+      </div>
+    </div>
+
+    <!-- Judge progress table -->
+    <h2 class="section-title" style="margin-bottom:1rem;">Judge Progress</h2>
+    <p class="table-scroll-hint">Scroll table sideways to see all columns →</p>
+    <div class="table-wrap">
+      <table class="data-table" style="min-width:820px;">
+        <thead>
+          <tr>
+            <th>Judge</th>
+            <th>Country</th>
+            <th style="text-align:center;">Category 01</th>
+            <th style="text-align:center;">Category 02</th>
+            <th style="text-align:center;">Category 03</th>
+            <th style="text-align:center;">Category 04</th>
+            <th style="text-align:center;">Overall</th>
+            <th style="text-align:right;">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:700;">Dr. Ratna Wijaya</td>
+            <td><span class="flag-icon flag-id"></span></td>
+            <td class="cat-cell" style="color:var(--forest-light);">10/10</td>
+            <td class="cat-cell" style="color:var(--forest-light);">10/10</td>
+            <td class="cat-cell" style="color:#8a6000;">6/10</td>
+            <td class="cat-cell" style="color:var(--forest-light);">10/10</td>
+            <td class="cat-cell">90%</td>
+            <td style="text-align:right;"><span class="status-pill complete">Complete</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">Dr. Hendra Kusuma</td>
+            <td><span class="flag-icon flag-id"></span></td>
+            <td class="cat-cell" style="color:#8a6000;">7/10</td>
+            <td class="cat-cell" style="color:#8a6000;">5/10</td>
+            <td class="cat-cell" style="color:var(--error);">2/10</td>
+            <td class="cat-cell" style="color:#8a6000;">8/10</td>
+            <td class="cat-cell">55%</td>
+            <td style="text-align:right;"><span class="status-pill progress">In Progress</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">Dr. Wulan Sari</td>
+            <td><span class="flag-icon flag-id"></span></td>
+            <td class="cat-cell" style="color:var(--error);">3/10</td>
+            <td class="cat-cell" style="color:var(--error);">2/10</td>
+            <td class="cat-cell" style="color:var(--error);">0/10</td>
+            <td class="cat-cell" style="color:var(--error);">3/10</td>
+            <td class="cat-cell">20%</td>
+            <td style="text-align:right;"><span class="status-pill behind">Behind</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">Dr. Maria Santos</td>
+            <td><span class="flag-icon flag-ph"></span></td>
+            <td class="cat-cell" style="color:var(--forest-light);">10/10</td>
+            <td class="cat-cell" style="color:#8a6000;">4/10</td>
+            <td class="cat-cell" style="color:var(--error);">0/10</td>
+            <td class="cat-cell" style="color:#8a6000;">7/10</td>
+            <td class="cat-cell">52.5%</td>
+            <td style="text-align:right;"><span class="status-pill progress">In Progress</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">Dr. Antonio Reyes</td>
+            <td><span class="flag-icon flag-ph"></span></td>
+            <td class="cat-cell" style="color:var(--forest-light);">10/10</td>
+            <td class="cat-cell" style="color:var(--forest-light);">9/10</td>
+            <td class="cat-cell" style="color:#8a6000;">7/10</td>
+            <td class="cat-cell" style="color:var(--forest-light);">10/10</td>
+            <td class="cat-cell">90%</td>
+            <td style="text-align:right;"><span class="status-pill complete">Complete</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">Dr. Carmela Cruz</td>
+            <td><span class="flag-icon flag-ph"></span></td>
+            <td class="cat-cell" style="color:var(--error);">3/10</td>
+            <td class="cat-cell" style="color:var(--error);">1/10</td>
+            <td class="cat-cell" style="color:var(--error);">0/10</td>
+            <td class="cat-cell" style="color:#8a6000;">5/10</td>
+            <td class="cat-cell">22.5%</td>
+            <td style="text-align:right;"><span class="status-pill behind">Behind</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">Dr. Linh Nguyen</td>
+            <td><span class="flag-icon flag-vn"></span></td>
+            <td class="cat-cell" style="color:var(--forest-light);">10/10</td>
+            <td class="cat-cell" style="color:var(--forest-light);">10/10</td>
+            <td class="cat-cell" style="color:var(--forest-light);">9/10</td>
+            <td class="cat-cell" style="color:var(--forest-light);">10/10</td>
+            <td class="cat-cell">97.5%</td>
+            <td style="text-align:right;"><span class="status-pill complete">Complete</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">Dr. Minh Tran</td>
+            <td><span class="flag-icon flag-vn"></span></td>
+            <td class="cat-cell" style="color:#8a6000;">6/10</td>
+            <td class="cat-cell" style="color:#8a6000;">6/10</td>
+            <td class="cat-cell" style="color:#8a6000;">5/10</td>
+            <td class="cat-cell" style="color:#8a6000;">7/10</td>
+            <td class="cat-cell">60%</td>
+            <td style="text-align:right;"><span class="status-pill progress">In Progress</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">Dr. Hoa Pham</td>
+            <td><span class="flag-icon flag-vn"></span></td>
+            <td class="cat-cell" style="color:var(--error);">1/10</td>
+            <td class="cat-cell" style="color:var(--error);">0/10</td>
+            <td class="cat-cell" style="color:var(--error);">0/10</td>
+            <td class="cat-cell" style="color:var(--error);">3/10</td>
+            <td class="cat-cell">10%</td>
+            <td style="text-align:right;"><span class="status-pill behind">Behind</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<!-- Export toast -->
+<div id="toast" class="toast">
+  <span class="check">✓</span> CSV export downloaded.
+</div>
+
+<footer>
+  <div class="footer-logo">Self-Care Excellence Awards 2026</div>
+  <div class="footer-note">Confidential — for authorised judges only · SwipeRx 2026</div>
+</footer>
+
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>

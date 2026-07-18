@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Judge Login — Indonesia | Self-Care Excellence Awards 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,300;1,6..12,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css" />
+<style>
+  body { display: flex; flex-direction: column; min-height: 100vh; }
+  .auth-section { flex: 1; display: flex; align-items: center; margin-top: 62px; }
+  .auth-section .container { width: 100%; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="top">
+  <a href="index.html" class="nav-logo">Self-Care Excellence Awards 2026</a>
+  <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">&larr; Back to Home</a></li>
+  </ul>
+</nav>
+
+<main class="auth-section">
+  <div class="container">
+    <div class="auth-wrap">
+      <div class="auth-banner">
+        <div class="flag"><span class="flag-icon flag-id"></span></div>
+        <h1>Indonesia Judge Login</h1>
+        <p>Self-Care Excellence Awards 2026</p>
+      </div>
+
+      <form id="loginForm" class="auth-form">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="judge.id@swiperx.com" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="••••••••" required />
+        </div>
+
+        <button type="submit" class="btn-primary btn-block">Sign In</button>
+
+        <div class="reminder-box">
+          <p class="reminder-title">⚠️ Important Reminders</p>
+          <ul>
+            <li>All submissions are anonymised — nominee names are never shown to judges</li>
+            <li>Scoring deadline: 31 August 2026</li>
+            <li>You are scoring Indonesia nominations only</li>
+          </ul>
+        </div>
+
+        <p class="auth-note">Access restricted to registered pharmacist judges for Indonesia.</p>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-logo">Self-Care Excellence Awards 2026</div>
+  <div class="footer-note">Confidential — for authorised judges only · SwipeRx 2026</div>
+</footer>
+
+<script src="assets/js/nav.js"></script>
+<script>
+  // Demo only: real build posts to WP auth + redirects on success.
+  document.getElementById('loginForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    window.location.href = 'judge-dashboard.html?country=ID';
+  });
+</script>
+</body>
+</html>

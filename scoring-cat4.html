@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Score Submission — Category 04 | Self-Care Excellence Awards 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,300;1,6..12,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css" />
+<style>
+  .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 13px; font-weight: 700; color: var(--gold); text-decoration: none; margin-bottom: 1.5rem; }
+  .back-link:hover { text-decoration: underline; }
+  .submission-code { font-family: 'Courier New', monospace; font-size: 13px; color: var(--body-text); margin-bottom: 0.25rem; }
+  .submission-title { font-size: 1.4rem; font-weight: 800; color: var(--forest); margin-bottom: 1.4rem; letter-spacing: -0.01em; }
+  .score-row { margin-bottom: 1.5rem; }
+  .score-row-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+  .score-row-head label { font-size: 14px; font-weight: 700; color: var(--forest); }
+  .score-row-head .weight { font-weight: 400; color: var(--body-text); font-size: 13px; }
+  .score-row-head .value { font-size: 14px; font-weight: 800; color: var(--forest-light); }
+  .score-input-row { display: flex; align-items: center; gap: 0.75rem; }
+  .total-box {
+    background: rgba(214, 153, 0, 0.08);
+    border-left: 3px solid var(--gold);
+    border-radius: 8px;
+    padding: 1.1rem 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  .total-box .label { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #7a5c00; margin-bottom: 0.3rem; }
+  .total-box .formula { font-size: 12px; color: #7a5c00; font-family: 'Courier New', monospace; }
+  .total-box .total { font-size: 1.8rem; font-weight: 800; color: var(--forest); }
+  .total-box .total .of10 { font-size: 1rem; font-weight: 400; color: var(--body-text); }
+  .form-actions { display: flex; gap: 0.75rem; margin-top: 0.5rem; }
+
+  .post-preview {
+    border: 1px solid rgba(17, 46, 26, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 360px;
+    margin-bottom: 1.5rem;
+  }
+  .post-media {
+    height: 200px;
+    background: linear-gradient(135deg, var(--forest) 0%, var(--forest-light) 50%, var(--gold) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .post-body { padding: 1rem 1.1rem; }
+  .post-caption { font-size: 0.9rem; color: var(--body-text); line-height: 1.6; margin-bottom: 0.75rem; }
+  .post-stats { display: flex; gap: 1rem; font-size: 12px; color: rgba(17,46,26,0.5); }
+
+  .meta-list { font-size: 0.92rem; }
+  .meta-row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid rgba(17,46,26,0.06); }
+  .meta-row:last-child { border-bottom: none; }
+  .meta-row dt { font-weight: 700; color: var(--forest); }
+  .meta-row dd { color: var(--body-text); text-align: right; }
+  .meta-row dd a { color: var(--gold); text-decoration: none; font-weight: 600; }
+  .meta-row dd a:hover { text-decoration: underline; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: flex-end; }
+  .tag-pill { font-size: 11px; padding: 0.2rem 0.6rem; border-radius: 100px; background: rgba(17,46,26,0.06); color: var(--forest); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="top">
+  <a href="judge-dashboard.html" data-guard-link class="nav-logo">Self-Care Excellence Awards 2026</a>
+  <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="judge-dashboard.html" data-guard-link>Dashboard</a></li>
+    <li><span class="nav-pill"><span class="flag-icon flag-ph"></span> Philippines</span></li>
+    <li><span class="nav-meta">Dr. Maria Santos</span></li>
+    <li><a href="index.html" data-guard-link class="btn-outline-light">Sign Out</a></li>
+  </ul>
+</nav>
+
+<main class="page-body" style="margin-top: 62px;">
+  <div class="container">
+
+    <a href="judge-dashboard.html" data-guard-link class="back-link">&larr; Back to Dashboard</a>
+
+    <div class="notice notice-gold" style="margin-bottom:1.5rem;">
+      <span>⚠️</span>
+      <span><strong>This category is unblinded.</strong> The pharmacist's social handle and post link are visible below, unlike Categories 01–03.</span>
+    </div>
+
+    <div class="grid-2">
+
+      <!-- Submission details -->
+      <section class="card">
+        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
+          <span class="badge-cat special">Category 04 · Social Media Impact</span>
+          <span class="badge-entry">Self</span>
+        </div>
+
+        <p class="submission-code">PH-CAT4-001</p>
+        <h1 class="submission-title">@theurbanfarmacist</h1>
+
+        <div class="post-preview">
+          <div class="post-media">Post Preview (media placeholder)</div>
+          <div class="post-body">
+            <p class="post-caption">
+              "5 things your pharmacist wishes you knew about treating a fever at home 🌡️ Save this before your
+              next trip to the pharmacy! Registration link in bio 🔗 @swiperxapp_ph #TrustBeginsAtTheCounter #SwipeRxWPD2026 #WPD2026PH"
+            </p>
+            <div class="post-stats">
+              <span>❤️ 4,820</span>
+              <span>💬 312</span>
+              <span>🔁 189</span>
+            </div>
+          </div>
+        </div>
+
+        <dl class="meta-list">
+          <div class="meta-row">
+            <dt>Platform</dt>
+            <dd>Instagram</dd>
+          </div>
+          <div class="meta-row">
+            <dt>Post Date</dt>
+            <dd>14 June 2026</dd>
+          </div>
+          <div class="meta-row">
+            <dt>Post URL</dt>
+            <dd><a href="#">instagram.com/p/C8xY2f_urbanfarmacist</a></dd>
+          </div>
+          <div class="meta-row">
+            <dt>Tags</dt>
+            <dd class="tag-list">
+              <span class="tag-pill">#TrustBeginsAtTheCounter</span>
+              <span class="tag-pill">#SwipeRxWPD2026</span>
+              <span class="tag-pill">#WPD2026PH</span>
+            </dd>
+          </div>
+          <div class="meta-row">
+            <dt>SwipeRx Tagged</dt>
+            <dd><span class="toggle-pill is-yes">✓ Yes</span></dd>
+          </div>
+          <div class="meta-row">
+            <dt>Campaign Link Included</dt>
+            <dd><span class="toggle-pill is-yes">✓ Yes</span></dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- Scoring form -->
+      <section class="card sticky-col">
+        <h2 style="font-size:1.15rem; font-weight:800; color:var(--forest); margin-bottom:0.2rem;">Score This Submission</h2>
+        <p style="font-size:12px; color:var(--body-text); margin-bottom:1.6rem;">Rate each criterion from 1 (lowest) to 10 (highest).</p>
+
+        <div class="scoring-guide">
+          <p class="guide-title">Scoring Guide</p>
+          <div class="scoring-guide-row">
+            <span class="range">1–3</span>
+            <span class="desc">Does not meet the standard</span>
+          </div>
+          <div class="scoring-guide-row">
+            <span class="range">4–6</span>
+            <span class="desc">Meets the standard</span>
+          </div>
+          <div class="scoring-guide-row">
+            <span class="range">7–9</span>
+            <span class="desc">Exceeds the standard</span>
+          </div>
+          <div class="scoring-guide-row exceptional">
+            <span class="range">10</span>
+            <span class="desc">Exceptional — rare, reserve for truly outstanding work</span>
+          </div>
+        </div>
+
+        <form id="scoreForm" data-scoring-form data-weights="0.4,0.35,0.15,0.1">
+
+          <div class="score-row" data-score-row>
+            <div class="score-row-head">
+              <label>Creativity &amp; production quality <span class="weight">(40%)</span></label>
+              <span class="value"><span data-score-display>8</span>/10</span>
+            </div>
+            <div class="score-input-row">
+              <input type="range" min="1" max="10" value="8" class="slider-fill" />
+              <input type="number" min="1" max="10" value="8" class="score-number" />
+            </div>
+          </div>
+
+          <div class="score-row" data-score-row>
+            <div class="score-row-head">
+              <label>Authenticity &amp; storytelling <span class="weight">(35%)</span></label>
+              <span class="value"><span data-score-display>7</span>/10</span>
+            </div>
+            <div class="score-input-row">
+              <input type="range" min="1" max="10" value="7" class="slider-fill" />
+              <input type="number" min="1" max="10" value="7" class="score-number" />
+            </div>
+          </div>
+
+          <div class="score-row" data-score-row>
+            <div class="score-row-head">
+              <label>Pharmacy advocacy strength <span class="weight">(15%)</span></label>
+              <span class="value"><span data-score-display>9</span>/10</span>
+            </div>
+            <div class="score-input-row">
+              <input type="range" min="1" max="10" value="9" class="slider-fill" />
+              <input type="number" min="1" max="10" value="9" class="score-number" />
+            </div>
+          </div>
+
+          <div class="score-row" data-score-row>
+            <div class="score-row-head">
+              <label>Campaign alignment <span class="weight">(10%)</span></label>
+              <span class="value"><span data-score-display>8</span>/10</span>
+            </div>
+            <div class="score-input-row">
+              <input type="range" min="1" max="10" value="8" class="slider-fill" />
+              <input type="number" min="1" max="10" value="8" class="score-number" />
+            </div>
+          </div>
+
+          <div class="total-box">
+            <div>
+              <p class="label">Weighted Total</p>
+              <p id="liveFormula" class="formula"></p>
+            </div>
+            <p class="total"><span id="liveTotal">7.8</span><span class="of10">/10</span></p>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.3rem;">
+            <label for="comments">Comments <span class="req">*</span></label>
+            <textarea id="comments" rows="4" placeholder="Share your rationale for this score..."></textarea>
+            <p id="commentsHint" class="form-hint-error hidden">Comments are required before you can save this score.</p>
+          </div>
+
+          <div class="form-actions" data-form-actions>
+            <button id="saveBtn" type="submit" disabled class="btn-submit" style="flex:1;">Save Score</button>
+            <a href="judge-dashboard.html" data-guard-link class="btn-outline">Cancel</a>
+          </div>
+
+          <div class="form-actions hidden" data-saved-actions>
+            <button type="button" class="btn-saved" style="flex:1;" disabled>✓ Score Saved</button>
+            <button type="button" id="editScoreBtn" class="btn-outline">Edit Score</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+</main>
+
+<!-- Unsaved changes modal -->
+<div id="unsavedModal" class="modal-backdrop">
+  <div class="modal-panel">
+    <h3>Discard changes?</h3>
+    <p>You have unsaved changes on this scoring form. Leaving now will discard them.</p>
+    <div class="modal-actions">
+      <button id="unsavedStay" class="btn-outline">Stay</button>
+      <button id="unsavedLeave" class="btn-danger">Leave Anyway</button>
+    </div>
+  </div>
+</div>
+
+<!-- Save toast -->
+<div id="toast" class="toast">
+  <span class="check">✓</span> Score saved successfully.
+</div>
+
+<footer>
+  <div class="footer-logo">Self-Care Excellence Awards 2026</div>
+  <div class="footer-note">Confidential — for authorised judges only · SwipeRx 2026</div>
+</footer>
+
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/scoring.js"></script>
+</body>
+</html>
