@@ -32,10 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (countEl) {
       const rangeStart = filtered.length === 0 ? 0 : start + 1;
       const rangeEnd = Math.min(end, filtered.length);
-      countEl.textContent = `Showing ${rangeStart}-${rangeEnd} of ${filtered.length}${currentFilter !== 'all' ? ` (${total} total)` : ''}`;
+      countEl.textContent = window.wpdjI18n
+        ? window.wpdjI18n.showingRange(rangeStart, rangeEnd, filtered.length, currentFilter !== 'all' ? total : null)
+        : `Showing ${rangeStart}-${rangeEnd} of ${filtered.length}${currentFilter !== 'all' ? ` (${total} total)` : ''}`;
     }
 
-    if (pageInfo) pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+    if (pageInfo) {
+      pageInfo.textContent = window.wpdjI18n
+        ? window.wpdjI18n.pageInfo(currentPage, totalPages)
+        : `Page ${currentPage} of ${totalPages}`;
+    }
     if (prevBtn) prevBtn.disabled = currentPage <= 1;
     if (nextBtn) nextBtn.disabled = currentPage >= totalPages;
     if (pagination) pagination.style.display = totalPages <= 1 ? 'none' : 'flex';

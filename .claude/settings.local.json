@@ -46,7 +46,8 @@
       "Bash(rm /home/cuncis/production/libradigital-v2/test_filter_tmp.js)",
       "Bash(cp /tmp/claude-1000/-mnt-c-Users-karang-ginolla-Downloads-WPD-2026-PNG-JUDGING-MICROSITE/78c17a36-5c85-4725-87c7-46d99bdd99af/scratchpad/test_filter.js /home/cuncis/production/libradigital-v2/test_filter_tmp.cjs)",
       "Bash(node test_filter_tmp.cjs)",
-      "Bash(rm /home/cuncis/production/libradigital-v2/test_filter_tmp.cjs)"
+      "Bash(rm /home/cuncis/production/libradigital-v2/test_filter_tmp.cjs)",
+      "Bash(python3 -)"
     ]
   }
 }

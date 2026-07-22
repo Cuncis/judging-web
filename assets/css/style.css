@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Self-Care Excellence Awards 2026 — Judging Microsite
-   Shared stylesheet — matches the World Pharmacists Day 2026 brand system
+   Self-Care Excellence Awards 2026 - Judging Microsite
+   Shared stylesheet - matches the World Pharmacists Day 2026 brand system
    (see PNG WDP ID reference site: Nunito Sans, forest/cream/gold palette)
    ========================================================================== */
 
@@ -1129,7 +1129,7 @@ footer {
   display: none !important;
 }
 
-/* Flag icons (SVG, not emoji — emoji flags render as letter codes on Windows) */
+/* Flag icons (SVG, not emoji; emoji flags render as letter codes on Windows) */
 .flag-icon {
   display: inline-block;
   width: 1.5em;

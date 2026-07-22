@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Country filter chips — filters the Judge Progress table by country
+  // Country filter chips: filters the Judge Progress table by country
   const judgeRows = Array.from(document.querySelectorAll('[data-judge-table] tbody tr'));
 
   document.querySelectorAll('[data-filter-chip]').forEach((chip) => {
