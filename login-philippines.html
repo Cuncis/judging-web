@@ -80,6 +80,7 @@
     e.preventDefault();
     const lang = document.getElementById('language').value;
     localStorage.setItem('wpdjLang', lang);
+    localStorage.setItem('wpdjCountry', 'PH');
     window.location.href = `judge-dashboard.html?country=PH&lang=${lang}`;
   });
 </script>

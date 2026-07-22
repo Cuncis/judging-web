@@ -78,8 +78,8 @@
   </button>
   <ul class="nav-links">
     <li><a href="judge-dashboard.html" data-guard-link>Dashboard</a></li>
-    <li><span class="nav-pill"><span class="flag-icon flag-ph"></span> Philippines</span></li>
-    <li><span class="nav-meta">Dr. Maria Santos</span></li>
+    <li><span class="nav-pill"><span class="flag-icon flag-ph" data-country-flag></span> <span data-country-name>Philippines</span></span></li>
+    <li><span class="nav-meta" data-country-judge>Dr. Maria Santos</span></li>
     <li><a href="index.html" data-guard-link class="btn-outline-light">Sign Out</a></li>
   </ul>
 </nav>
@@ -103,20 +103,20 @@
           <span class="badge-entry">Self</span>
         </div>
 
-        <p class="submission-code">PH-CAT4-001</p>
-        <h1 class="submission-title">@theurbanfarmacist</h1>
+        <p class="submission-code" data-country-code>PH-CAT4-001</p>
+        <h1 class="submission-title" data-country-handle>@theurbanfarmacist</h1>
 
         <div class="post-preview">
           <div class="post-media">Post Preview (media placeholder)</div>
           <div class="post-body">
-            <p class="post-caption">
+            <p class="post-caption" data-country-caption>
               "5 things your pharmacist wishes you knew about treating a fever at home 🌡️ Save this before your
-              next trip to the pharmacy! Registration link in bio 🔗 @swiperxapp_ph #TrustBeginsAtTheCounter #SwipeRxWPD2026 #WPD2026PH"
+              next trip to the pharmacy! Registration link in bio 🔗 @swiperxapp_ph #TrustBeginsAtTheCounter #SwipeRxJoinTheMovement #SwipeRxWPD2026 #WPD2026PH"
             </p>
             <div class="post-stats">
-              <span>❤️ 4,820</span>
-              <span>💬 312</span>
-              <span>🔁 189</span>
+              <span data-country-likes>❤️ 4,820</span>
+              <span data-country-comments>💬 312</span>
+              <span data-country-shares>🔁 189</span>
             </div>
           </div>
         </div>
@@ -124,7 +124,7 @@
         <dl class="meta-list">
           <div class="meta-row">
             <dt>Platform</dt>
-            <dd>Instagram</dd>
+            <dd data-country-platform>Instagram</dd>
           </div>
           <div class="meta-row">
             <dt>Post Date</dt>
@@ -132,12 +132,13 @@
           </div>
           <div class="meta-row">
             <dt>Post URL</dt>
-            <dd><a href="#">instagram.com/p/C8xY2f_urbanfarmacist</a></dd>
+            <dd><a href="#" data-country-posturl>instagram.com/p/C8xY2f_urbanfarmacist</a></dd>
           </div>
           <div class="meta-row">
             <dt>Tags</dt>
-            <dd class="tag-list">
+            <dd class="tag-list" data-country-tags>
               <span class="tag-pill">#TrustBeginsAtTheCounter</span>
+              <span class="tag-pill">#SwipeRxJoinTheMovement</span>
               <span class="tag-pill">#SwipeRxWPD2026</span>
               <span class="tag-pill">#WPD2026PH</span>
             </dd>
@@ -292,6 +293,7 @@
 </footer>
 
 <script src="assets/js/i18n.js"></script>
+<script src="assets/js/cat4-localize.js"></script>
 <script src="assets/js/nav.js"></script>
 <script src="assets/js/scoring.js"></script>
 </body>
