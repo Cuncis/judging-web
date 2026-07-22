@@ -16,9 +16,9 @@
   .field-label { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); margin-bottom: 0.35rem; }
   .field-value { font-size: 0.95rem; color: var(--body-text); line-height: 1.7; }
   .score-row { margin-bottom: 1.5rem; }
-  .score-row-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
-  .score-row-head label { font-size: 14px; font-weight: 700; color: var(--forest); }
-  .score-row-head .weight { font-weight: 400; color: var(--body-text); font-size: 13px; }
+  .score-row-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+  .score-row-head label { display: block; font-size: 14px; font-weight: 700; color: var(--forest); }
+  .score-row-head .weight { display: block; font-weight: 400; color: var(--body-text); font-size: 12px; margin-top: 0.2rem; }
   .score-row-head .value { font-size: 14px; font-weight: 800; color: var(--forest-light); }
   .score-input-row { display: flex; align-items: center; gap: 0.75rem; }
   .total-box {
@@ -132,7 +132,10 @@
 
           <div class="score-row" data-score-row>
             <div class="score-row-head">
-              <label>Impact on patient outcomes <span class="weight">(40%)</span></label>
+              <div>
+                <label>Impact on patient outcomes</label>
+                <span class="weight">40% weight</span>
+              </div>
               <span class="value"><span data-score-display>8</span>/10</span>
             </div>
             <div class="score-input-row">
@@ -143,7 +146,10 @@
 
           <div class="score-row" data-score-row>
             <div class="score-row-head">
-              <label>Innovation &amp; approach <span class="weight">(20%)</span></label>
+              <div>
+                <label>Innovation &amp; approach</label>
+                <span class="weight">20% weight</span>
+              </div>
               <span class="value"><span data-score-display>7</span>/10</span>
             </div>
             <div class="score-input-row">
@@ -154,7 +160,10 @@
 
           <div class="score-row" data-score-row>
             <div class="score-row-head">
-              <label>Sustainability &amp; scalability <span class="weight">(20%)</span></label>
+              <div>
+                <label>Sustainability &amp; scalability</label>
+                <span class="weight">20% weight</span>
+              </div>
               <span class="value"><span data-score-display>8</span>/10</span>
             </div>
             <div class="score-input-row">
@@ -165,7 +174,10 @@
 
           <div class="score-row" data-score-row>
             <div class="score-row-head">
-              <label>Relevance to self-care pillar <span class="weight">(20%)</span></label>
+              <div>
+                <label>Relevance to self-care pillar</label>
+                <span class="weight">20% weight</span>
+              </div>
               <span class="value"><span data-score-display>9</span>/10</span>
             </div>
             <div class="score-input-row">

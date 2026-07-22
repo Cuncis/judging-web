@@ -107,10 +107,10 @@
     <div style="display:flex; flex-wrap:wrap; gap:2rem; margin-bottom:1.5rem;">
       <div class="filter-group" data-filter-group>
         <span class="filter-group-label">Country:</span>
-        <button data-filter-chip class="filter-chip is-active">All</button>
-        <button data-filter-chip class="filter-chip"><span class="flag-icon flag-id"></span></button>
-        <button data-filter-chip class="filter-chip"><span class="flag-icon flag-ph"></span></button>
-        <button data-filter-chip class="filter-chip"><span class="flag-icon flag-vn"></span></button>
+        <button data-filter-chip data-filter-value="all" class="filter-chip is-active">All</button>
+        <button data-filter-chip data-filter-value="ID" class="filter-chip"><span class="flag-icon flag-id"></span></button>
+        <button data-filter-chip data-filter-value="PH" class="filter-chip"><span class="flag-icon flag-ph"></span></button>
+        <button data-filter-chip data-filter-value="VN" class="filter-chip"><span class="flag-icon flag-vn"></span></button>
       </div>
     </div>
 
@@ -118,7 +118,7 @@
     <h2 class="section-title" style="margin-bottom:1rem;">Judge Progress</h2>
     <p class="table-scroll-hint">Scroll table sideways to see all columns →</p>
     <div class="table-wrap">
-      <table class="data-table" style="min-width:820px;">
+      <table class="data-table" data-judge-table style="min-width:820px;">
         <thead>
           <tr>
             <th>Judge</th>
@@ -132,7 +132,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr data-country="ID">
             <td style="font-weight:700;">Dr. Ratna Wijaya</td>
             <td><span class="flag-icon flag-id"></span></td>
             <td class="cat-cell" style="color:var(--forest-light);">10/10</td>
@@ -142,7 +142,7 @@
             <td class="cat-cell">90%</td>
             <td style="text-align:right;"><span class="status-pill complete">Complete</span></td>
           </tr>
-          <tr>
+          <tr data-country="ID">
             <td style="font-weight:700;">Dr. Hendra Kusuma</td>
             <td><span class="flag-icon flag-id"></span></td>
             <td class="cat-cell" style="color:#8a6000;">7/10</td>
@@ -152,7 +152,7 @@
             <td class="cat-cell">55%</td>
             <td style="text-align:right;"><span class="status-pill progress">In Progress</span></td>
           </tr>
-          <tr>
+          <tr data-country="ID">
             <td style="font-weight:700;">Dr. Wulan Sari</td>
             <td><span class="flag-icon flag-id"></span></td>
             <td class="cat-cell" style="color:var(--error);">3/10</td>
@@ -162,7 +162,7 @@
             <td class="cat-cell">20%</td>
             <td style="text-align:right;"><span class="status-pill behind">Behind</span></td>
           </tr>
-          <tr>
+          <tr data-country="PH">
             <td style="font-weight:700;">Dr. Maria Santos</td>
             <td><span class="flag-icon flag-ph"></span></td>
             <td class="cat-cell" style="color:var(--forest-light);">10/10</td>
@@ -172,7 +172,7 @@
             <td class="cat-cell">52.5%</td>
             <td style="text-align:right;"><span class="status-pill progress">In Progress</span></td>
           </tr>
-          <tr>
+          <tr data-country="PH">
             <td style="font-weight:700;">Dr. Antonio Reyes</td>
             <td><span class="flag-icon flag-ph"></span></td>
             <td class="cat-cell" style="color:var(--forest-light);">10/10</td>
@@ -182,7 +182,7 @@
             <td class="cat-cell">90%</td>
             <td style="text-align:right;"><span class="status-pill complete">Complete</span></td>
           </tr>
-          <tr>
+          <tr data-country="PH">
             <td style="font-weight:700;">Dr. Carmela Cruz</td>
             <td><span class="flag-icon flag-ph"></span></td>
             <td class="cat-cell" style="color:var(--error);">3/10</td>
@@ -192,7 +192,7 @@
             <td class="cat-cell">22.5%</td>
             <td style="text-align:right;"><span class="status-pill behind">Behind</span></td>
           </tr>
-          <tr>
+          <tr data-country="VN">
             <td style="font-weight:700;">Dr. Linh Nguyen</td>
             <td><span class="flag-icon flag-vn"></span></td>
             <td class="cat-cell" style="color:var(--forest-light);">10/10</td>
@@ -202,7 +202,7 @@
             <td class="cat-cell">97.5%</td>
             <td style="text-align:right;"><span class="status-pill complete">Complete</span></td>
           </tr>
-          <tr>
+          <tr data-country="VN">
             <td style="font-weight:700;">Dr. Minh Tran</td>
             <td><span class="flag-icon flag-vn"></span></td>
             <td class="cat-cell" style="color:#8a6000;">6/10</td>
@@ -212,7 +212,7 @@
             <td class="cat-cell">60%</td>
             <td style="text-align:right;"><span class="status-pill progress">In Progress</span></td>
           </tr>
-          <tr>
+          <tr data-country="VN">
             <td style="font-weight:700;">Dr. Hoa Pham</td>
             <td><span class="flag-icon flag-vn"></span></td>
             <td class="cat-cell" style="color:var(--error);">1/10</td>

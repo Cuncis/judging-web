@@ -12,9 +12,9 @@
   .submission-code { font-family: 'Courier New', monospace; font-size: 13px; color: var(--body-text); margin-bottom: 0.25rem; }
   .submission-title { font-size: 1.4rem; font-weight: 800; color: var(--forest); margin-bottom: 1.4rem; letter-spacing: -0.01em; }
   .score-row { margin-bottom: 1.5rem; }
-  .score-row-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
-  .score-row-head label { font-size: 14px; font-weight: 700; color: var(--forest); }
-  .score-row-head .weight { font-weight: 400; color: var(--body-text); font-size: 13px; }
+  .score-row-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+  .score-row-head label { display: block; font-size: 14px; font-weight: 700; color: var(--forest); }
+  .score-row-head .weight { display: block; font-weight: 400; color: var(--body-text); font-size: 12px; margin-top: 0.2rem; }
   .score-row-head .value { font-size: 14px; font-weight: 800; color: var(--forest-light); }
   .score-input-row { display: flex; align-items: center; gap: 0.75rem; }
   .total-box {
@@ -179,7 +179,10 @@
 
           <div class="score-row" data-score-row>
             <div class="score-row-head">
-              <label>Creativity &amp; production quality <span class="weight">(40%)</span></label>
+              <div>
+                <label>Creativity &amp; production quality</label>
+                <span class="weight">40% weight</span>
+              </div>
               <span class="value"><span data-score-display>8</span>/10</span>
             </div>
             <div class="score-input-row">
@@ -190,7 +193,10 @@
 
           <div class="score-row" data-score-row>
             <div class="score-row-head">
-              <label>Authenticity &amp; storytelling <span class="weight">(35%)</span></label>
+              <div>
+                <label>Authenticity &amp; storytelling</label>
+                <span class="weight">35% weight</span>
+              </div>
               <span class="value"><span data-score-display>7</span>/10</span>
             </div>
             <div class="score-input-row">
@@ -201,7 +207,10 @@
 
           <div class="score-row" data-score-row>
             <div class="score-row-head">
-              <label>Pharmacy advocacy strength <span class="weight">(15%)</span></label>
+              <div>
+                <label>Pharmacy advocacy strength</label>
+                <span class="weight">15% weight</span>
+              </div>
               <span class="value"><span data-score-display>9</span>/10</span>
             </div>
             <div class="score-input-row">
@@ -212,7 +221,10 @@
 
           <div class="score-row" data-score-row>
             <div class="score-row-head">
-              <label>Campaign alignment <span class="weight">(10%)</span></label>
+              <div>
+                <label>Campaign alignment</label>
+                <span class="weight">10% weight</span>
+              </div>
               <span class="value"><span data-score-display>8</span>/10</span>
             </div>
             <div class="score-input-row">

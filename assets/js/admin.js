@@ -45,12 +45,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Country / category filter chips — visual only (no live data source yet)
+  // Country filter chips — filters the Judge Progress table by country
+  const judgeRows = Array.from(document.querySelectorAll('[data-judge-table] tbody tr'));
+
   document.querySelectorAll('[data-filter-chip]').forEach((chip) => {
     chip.addEventListener('click', () => {
       const group = chip.closest('[data-filter-group]');
       group?.querySelectorAll('[data-filter-chip]').forEach((c) => c.classList.remove('is-active'));
       chip.classList.add('is-active');
+
+      const value = chip.dataset.filterValue;
+      judgeRows.forEach((row) => {
+        row.style.display = value === 'all' || row.dataset.country === value ? '' : 'none';
+      });
     });
   });
 });
