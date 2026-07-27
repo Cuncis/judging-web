@@ -18,7 +18,8 @@
   .score-row { margin-bottom: 1.5rem; }
   .score-row-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
   .score-row-head label { display: block; font-size: 14px; font-weight: 700; color: var(--forest); }
-  .score-row-head .weight { display: block; font-weight: 400; color: var(--body-text); font-size: 12px; margin-top: 0.2rem; }
+  .score-row-head .weight { font-weight: 700; color: var(--gold); font-size: 13px; margin-left: 0.35rem; }
+  .criterion-desc { font-size: 12px; color: var(--body-text); line-height: 1.5; margin-top: 0.35rem; }
   .score-row-head .value { font-size: 14px; font-weight: 800; color: var(--forest-light); }
   .score-input-row { display: flex; align-items: center; gap: 0.75rem; }
   .total-box {
@@ -140,8 +141,8 @@
           <div class="score-row" data-score-row>
             <div class="score-row-head">
               <div>
-                <label>Impact on patient outcomes</label>
-                <span class="weight">40% weight</span>
+                <label>Impact on patient outcomes<span class="weight">(40%)</span></label>
+                <p class="criterion-desc">How clearly the initiative leads to measurable improvements in patient health behaviour, adherence, or wellbeing.</p>
               </div>
               <span class="value"><span data-score-display>8</span>/10</span>
             </div>
@@ -154,8 +155,8 @@
           <div class="score-row" data-score-row>
             <div class="score-row-head">
               <div>
-                <label>Innovation &amp; approach</label>
-                <span class="weight">20% weight</span>
+                <label>Innovation &amp; approach<span class="weight">(20%)</span></label>
+                <p class="criterion-desc">How original or resourceful the approach is compared to standard practice.</p>
               </div>
               <span class="value"><span data-score-display>7</span>/10</span>
             </div>
@@ -168,8 +169,8 @@
           <div class="score-row" data-score-row>
             <div class="score-row-head">
               <div>
-                <label>Sustainability &amp; scalability</label>
-                <span class="weight">20% weight</span>
+                <label>Sustainability &amp; scalability<span class="weight">(20%)</span></label>
+                <p class="criterion-desc">Whether the initiative can continue long-term and be replicated in other pharmacies or communities.</p>
               </div>
               <span class="value"><span data-score-display>8</span>/10</span>
             </div>
@@ -182,8 +183,8 @@
           <div class="score-row" data-score-row>
             <div class="score-row-head">
               <div>
-                <label>Relevance to self-care pillar</label>
-                <span class="weight">20% weight</span>
+                <label>Relevance to self-care pillar<span class="weight">(20%)</span></label>
+                <p class="criterion-desc">How directly the initiative supports self-care awareness, education, or access.</p>
               </div>
               <span class="value"><span data-score-display>9</span>/10</span>
             </div>

@@ -106,12 +106,49 @@
     'Pharmacy advocacy strength': { id: 'Kekuatan advokasi kefarmasian', fil: 'Lakas ng pharmacy advocacy', vi: 'Mức độ ủng hộ ngành dược' },
     'Campaign alignment': { id: 'Keselarasan dengan kampanye', fil: 'Pagkakahanay sa campaign', vi: 'Mức độ phù hợp với chiến dịch' },
 
-    '40% weight': { id: 'Bobot 40%', fil: '40% na bigat', vi: 'Trọng số 40%' },
-    '35% weight': { id: 'Bobot 35%', fil: '35% na bigat', vi: 'Trọng số 35%' },
-    '20% weight': { id: 'Bobot 20%', fil: '20% na bigat', vi: 'Trọng số 20%' },
-    '15% weight': { id: 'Bobot 15%', fil: '15% na bigat', vi: 'Trọng số 15%' },
-    '10% weight': { id: 'Bobot 10%', fil: '10% na bigat', vi: 'Trọng số 10%' },
     'Weighted Total': { id: 'Total Berbobot', fil: 'Weighted Total', vi: 'Tổng có trọng số' },
+
+    // Criterion descriptions (guidance text, shown below each criterion heading)
+    'How clearly the initiative leads to measurable improvements in patient health behaviour, adherence, or wellbeing.': {
+      id: 'Seberapa jelas inisiatif ini menghasilkan peningkatan yang terukur pada perilaku kesehatan, kepatuhan, atau kesejahteraan pasien.',
+      fil: 'Gaano kalinaw ang inisyatiba na ito sa paghahatid ng masusukat na pagpapabuti sa kilos, pagsunod, o kapakanan ng kalusugan ng pasyente.',
+      vi: 'Sáng kiến này mang lại cải thiện có thể đo lường được về hành vi sức khỏe, sự tuân thủ điều trị hoặc sức khỏe tổng thể của bệnh nhân rõ ràng đến mức nào.',
+    },
+    'How original or resourceful the approach is compared to standard practice.': {
+      id: 'Seberapa orisinal atau kreatif pendekatan ini dibandingkan dengan praktik standar.',
+      fil: 'Gaano ka-orihinal o mapamaraan ang approach kumpara sa karaniwang practice.',
+      vi: 'Cách tiếp cận này độc đáo hoặc sáng tạo đến mức nào so với thông lệ tiêu chuẩn.',
+    },
+    'Whether the initiative can continue long-term and be replicated in other pharmacies or communities.': {
+      id: 'Apakah inisiatif ini dapat berlanjut dalam jangka panjang dan direplikasi di apotek atau komunitas lain.',
+      fil: 'Kung ang inisyatiba ay maaaring magpatuloy sa mahabang panahon at ma-replicate sa ibang parmasya o komunidad.',
+      vi: 'Liệu sáng kiến này có thể duy trì lâu dài và được nhân rộng ở các nhà thuốc hoặc cộng đồng khác hay không.',
+    },
+    'How directly the initiative supports self-care awareness, education, or access.': {
+      id: 'Seberapa langsung inisiatif ini mendukung kesadaran, edukasi, atau akses self-care.',
+      fil: 'Gaano kadirekta sinusuportahan ng inisyatiba ang kamalayan, edukasyon, o access sa self-care.',
+      vi: 'Sáng kiến này hỗ trợ trực tiếp đến mức nào cho nhận thức, giáo dục hoặc khả năng tiếp cận tự chăm sóc.',
+    },
+    'How visually engaging, well-produced, and creative the content is in communicating the message.': {
+      id: 'Seberapa menarik secara visual, diproduksi dengan baik, dan kreatif konten ini dalam menyampaikan pesan.',
+      fil: 'Gaano ka-engaging sa visual, magaling gawa, at malikhain ang content sa paghahatid ng mensahe.',
+      vi: 'Nội dung này thu hút về mặt hình ảnh, được sản xuất tốt và sáng tạo đến mức nào trong việc truyền tải thông điệp.',
+    },
+    'Whether the post feels genuine and tells a relatable story rather than a generic promotional message.': {
+      id: 'Apakah unggahan ini terasa autentik dan menceritakan kisah yang relevan, bukan sekadar pesan promosi umum.',
+      fil: 'Kung ang post ay pakiramdam ay tunay at nagkukuwento ng kaugnay na istorya sa halip na generic na promotional message.',
+      vi: 'Bài đăng có cảm giác chân thực và kể một câu chuyện gần gũi thay vì một thông điệp quảng cáo chung chung hay không.',
+    },
+    'How clearly the post positions the pharmacist as a trusted source of self-care advice.': {
+      id: 'Seberapa jelas unggahan ini memposisikan apoteker sebagai sumber tepercaya untuk saran self-care.',
+      fil: 'Gaano kalinaw na inilalagay ng post ang parmasyutiko bilang pinagkakatiwalaang source ng self-care advice.',
+      vi: 'Bài đăng thể hiện rõ ràng đến mức nào việc đưa dược sĩ trở thành nguồn tư vấn tự chăm sóc đáng tin cậy.',
+    },
+    'Whether the post correctly uses the official hashtags, tagged handles, and campaign messaging.': {
+      id: 'Apakah unggahan ini menggunakan hashtag resmi, akun yang ditandai, dan pesan kampanye dengan benar.',
+      fil: 'Kung tama ang paggamit ng post sa opisyal na hashtags, mga naka-tag na handle, at campaign messaging.',
+      vi: 'Bài đăng có sử dụng đúng hashtag chính thức, tài khoản được gắn thẻ và thông điệp chiến dịch hay không.',
+    },
 
     'Comments': { id: 'Komentar', fil: 'Comments', vi: 'Nhận xét' },
     'Share your rationale for this score...': { id: 'Bagikan alasan Anda untuk skor ini...', fil: 'Ibahagi ang iyong dahilan para sa score na ito...', vi: 'Chia sẻ lý do của bạn cho điểm số này...' },
