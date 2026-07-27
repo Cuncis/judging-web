@@ -1,8 +1,9 @@
 # WPD Judging Plugin — wp-admin Data Entry Plan
 
 > Draft for review. This describes what the **WordPress plugin's backend (wp-admin)** would contain if this
-> judging microsite were rebuilt as a standalone plugin — every screen, every field the SwipeRx Admin fills in
-> manually, and how bulk CSV import would work. Nothing here is built yet; this is the spec to sign off on first.
+> judging microsite were rebuilt as a standalone plugin — every screen, every field the real **WordPress
+> Administrator** (the person who can already log into `/wp-admin/` today) fills in manually, and how bulk CSV
+> import would work. Nothing here is built yet; this is the spec to sign off on first.
 
 ---
 
@@ -16,7 +17,7 @@
 6. [Screen: Import Submissions (CSV)](#6-screen-import-submissions-csv)
 7. [Screen: Categories](#7-screen-categories)
 8. [Screen: Countries](#8-screen-countries)
-9. [Screen: Judges](#9-screen-judges)
+9. [Screen: Judging Admins & Judges](#9-screen-judging-admins--judges)
 10. [Screen: Import Judges (CSV)](#10-screen-import-judges-csv)
 11. [Screen: Scores (read-only + override)](#11-screen-scores-read-only--override)
 12. [Screen: Settings](#12-screen-settings)
@@ -45,16 +46,19 @@ Everything below assumes the plugin owns its own Custom Post Types, roles, and a
 
 ## 2. Two Admin Surfaces — Don't Confuse Them
 
-This project already has **two different "admin" experiences**, and the plugin plan below is only about the first one:
+This project has **three distinct people/roles**, and it's important not to blur them:
 
-| Surface | Who uses it | Purpose | Status |
+| Surface | Who uses it | Purpose | wp-admin access |
 |---|---|---|---|
-| **wp-admin backend** (`/wp-admin/`) | SwipeRx Admin (you) | **Data entry**: create/import submissions, set up categories & countries, manage judge accounts, view/export raw scores | 🆕 This document — not built yet |
-| **Front-end Admin Dashboard** (`admin-dashboard.html` in this mockup) | SwipeRx Admin (you) | **Progress monitoring**: country cards, judge progress table, CSV export — the pretty branded page | ✅ Already built as static HTML in this repo |
+| **wp-admin backend** (`/wp-admin/`) | The real **WordPress Administrator** — the site owner/developer, the only person with an actual WordPress account today | **Data entry**: create/import submissions, set up categories & countries, create Judging Admin accounts, create/import Judge accounts, view/override raw scores | ✅ Full "Judging Awards" menu |
+| **Front-end Admin Dashboard** (`admin-dashboard.html` in this mockup, reached via `login-admin.html`) | **Judging Admin** (`wpdj_admin` role) — e.g. a SwipeRx program manager who needs to watch progress but should never touch WordPress itself | **Progress monitoring**: country cards, judge progress table, CSV export — the pretty branded page | ❌ None at all |
+| **Front-end Judge pages** (`login-{country}.html` → judge dashboard → scoring pages) | **Judge** (`wpdj_judge` role) | Score assigned submissions for their own country | ❌ None at all |
 
-The front-end dashboard doesn't need to be rebuilt inside wp-admin — it stays as the polished, branded "at a glance" view, and gets wired to pull real numbers from the CPTs this plugin creates instead of hardcoded HTML. wp-admin is purely the boring data-entry side.
+This is a correction to how earlier drafts of this document phrased it: the person who logs in at `login-admin.html` and sees `admin-dashboard.html` is **not** the WordPress Administrator and does **not** get a `/wp-admin/` login. They're a separate, front-end-only role — `wpdj_admin` — created by the real WordPress Administrator, exactly the same way a Judge account is created. The Judge model in this document was already correct (front-end only, no wp-admin); the Judging Admin role now follows the identical pattern.
 
-**Judges never see wp-admin.** They only ever touch the front-end login → dashboard → scoring pages already built in this repo. The entire menu below is for SwipeRx Admin only.
+The front-end dashboard doesn't need to be rebuilt inside wp-admin — it stays as the polished, branded "at a glance" view, and gets wired to pull real numbers from the CPTs this plugin creates instead of hardcoded HTML.
+
+**Neither Judges nor Judging Admins ever see wp-admin.** They only ever touch the front-end login → dashboard → scoring/progress pages already built in this repo. The entire wp-admin menu below is for the real WordPress Administrator only — and that includes the screen where Judging Admin and Judge accounts themselves get created (see [§9](#9-screen-judging-admins--judges)).
 
 ---
 
@@ -68,7 +72,9 @@ Judging Awards                          (top-level menu, dashicons-awards)
 ├── Import Submissions                  (CSV bulk upload)
 ├── Categories                          (the 4 award categories + criteria/weights)
 ├── Countries                           (ID / PH / VN + hashtags, handles, judge quota)
-├── Judges                              (WP users with the Judge role)
+├── Judging Admins                      (wpdj_admin accounts — front-end progress dashboard only)
+│   └── Add New Judging Admin
+├── Judges                              (wpdj_judge accounts — front-end scoring only)
 │   └── Add / Import Judges
 ├── Scores                              (read-only, judge-submitted — with manual override)
 ├── Export                              (CSV: submissions / scores / judge progress)
@@ -79,7 +85,7 @@ Judging Awards                          (top-level menu, dashicons-awards)
 
 ## 4. Screen: Judging Overview (plugin landing page)
 
-Read-only summary shown the moment SwipeRx Admin clicks "Judging Awards" — not a data-entry screen, just orientation:
+Read-only summary shown the moment the WordPress Administrator clicks "Judging Awards" — not a data-entry screen, just orientation:
 
 | Widget | Shows |
 |---|---|
@@ -88,7 +94,7 @@ Read-only summary shown the moment SwipeRx Admin clicks "Judging Awards" — not
 | Scoring progress | % complete overall + per country (same numbers as the front-end Admin Dashboard) |
 | Judges | Count per country, with a "not yet scored anything" flag for stragglers |
 | Deadline | Scoring deadline countdown (from Settings) |
-| Quick links | "Import Submissions", "Add Judge", "View Front-End Dashboard" |
+| Quick links | "Import Submissions", "Add Judge", "Add Judging Admin", "View Front-End Dashboard" |
 
 ---
 
@@ -140,6 +146,10 @@ CPT: `wpdj_submission`. This is the biggest data-entry surface — one row per s
 
 - **Scoring status** (Complete / In Progress / Not Started) — derived from whether a `wpdj_score` exists per judge for this submission, shown as a read-only column on the list table.
 
+### Judge navigation order (Previous / Next submission)
+
+The mockup's "← Previous submission" / "Next submission →" links on each scoring page currently just cycle between the 4 category demo pages (Cat 1 → 2 → 3 → 4 → 1) since there's only one example submission per category. In the real plugin, Previous/Next needs to walk an actual **ordered queue of that judge's assigned submissions** — the simplest default is: all shortlisted submissions in the judge's own country, ordered by Submission Code, filterable by whichever category tile they entered scoring from. No extra field is required for this by default; it falls out of the existing `Country` + `Category` + `Submission Code` fields. (An optional manual "Display Order" number field could be added later if the client wants control over judging sequence independent of code order — see [Open Questions](#18-open-questions-before-development-starts).)
+
 ---
 
 ## 6. Screen: Import Submissions (CSV)
@@ -169,7 +179,9 @@ The 4 award categories are **admin-configurable**, not hardcoded — so next yea
 | Category Name | Text | ✅ | e.g. "Empower & Educate" |
 | Short Description | Textarea | — | Shown on the judge dashboard tile |
 | Blinded? | Toggle | ✅ | `No` for Cat 4 only — controls whether the "unblinded category" notice renders and whether nominee-identifying fields show |
-| Criteria | Repeatable rows: Name + Weight % | ✅ | e.g. 4 rows for Cat 1–3 (40/20/20/20), 4 rows for Cat 4 (40/35/15/10) |
+| Criteria | Repeatable rows: Name + Weight % + Judge-Facing Guidance | ✅ | e.g. 4 rows for Cat 1–3 (40/20/20/20), 4 rows for Cat 4 (40/35/15/10) |
+
+**Judge-Facing Guidance** is the short sentence rendered under each criterion heading on the scoring page (e.g. "How clearly the initiative leads to measurable improvements in patient health behaviour, adherence, or wellbeing.") — currently hardcoded per criterion in the mockup's HTML, but should be an admin-editable field here so wording can be tuned without a developer touching code.
 
 **Validation:** the weights across all criteria rows for a category must sum to exactly 100%. Block save otherwise.
 
@@ -195,9 +207,26 @@ Also admin-configurable rather than hardcoded — useful since the campaign hash
 
 ---
 
-## 9. Screen: Judges
+## 9. Screen: Judging Admins & Judges
 
-Judges are WordPress Users with a custom role. **No manual per-judge submission assignment** — the current model is *country-scoped*: every judge in a country reviews every shortlisted submission for that country, across all 4 categories. (If you want true panel-splitting — e.g. only 3 of 9 judges per submission — that's a Phase 2 change, see §17.)
+Both roles below are **WordPress Users with a custom role**, and both are created here, by the real WordPress Administrator, inside wp-admin. Neither role is ever granted `/wp-admin/` access — this screen exists purely so the Administrator can provision their accounts. Once created, each person logs into their own front-end page (`login-admin.html` or a country's `login-{country}.html`) exactly as already built in this mockup.
+
+### Judging Admins (`wpdj_admin`)
+
+Front-end-only role for whoever needs to watch overall judging progress without scoring anything — e.g. a SwipeRx program manager. Logs in at `login-admin.html`, sees only the front-end `admin-dashboard.html` (progress across all 3 countries, judge progress table, CSV export). Not scoped to a single country, since their job is to see everything.
+
+| Field | Type | Required | Notes |
+|---|---|---|---|
+| Name | Text | ✅ | WP display name |
+| Email | Email | ✅ | WP username/login |
+| Password | Auto-generate + email, or set manually | ✅ | Standard WP `wp_hash_password()` |
+| Active | Toggle | ✅ | Deactivate to revoke access without deleting the account |
+
+There are typically only one or two of these accounts, so no bulk CSV import is planned for this role — add manually via "Add New Judging Admin."
+
+### Judges (`wpdj_judge`)
+
+**No manual per-judge submission assignment** — the current model is *country-scoped*: every judge in a country reviews every shortlisted submission for that country, across all 4 categories. (If you want true panel-splitting — e.g. only 3 of 9 judges per submission — that's a Phase 2 change, see §17.)
 
 | Field | Type | Required | Notes |
 |---|---|---|---|
@@ -226,7 +255,7 @@ Separate tool from Submissions import since judges are WP Users, not a CPT.
 
 ## 11. Screen: Scores (read-only + override)
 
-CPT: `wpdj_score`. **Judges fill this in from the front-end**, not wp-admin — this screen exists so SwipeRx Admin can audit and, if a genuine dispute or entry error comes up, correct a score.
+CPT: `wpdj_score`. **Judges fill this in from the front-end**, not wp-admin — this screen exists so the WordPress Administrator can audit and, if a genuine dispute or entry error comes up, correct a score.
 
 | Column | Notes |
 |---|---|
@@ -256,16 +285,24 @@ CPT: `wpdj_score`. **Judges fill this in from the front-end**, not wp-admin — 
 | Supported UI Languages | Checkboxes (EN / Bahasa Indonesia / Filipino / Tiếng Việt) | Matches the login-page language dropdowns already built |
 | Category 4 Unblinding Notice Text | Textarea | Editable copy for the notice banner, in case legal/marketing wants to adjust wording later |
 
+**How the UI translation itself would actually work:** the mockup's `assets/js/i18n.js` is a hardcoded client-side JS object mapping ~90 English UI strings (nav, labels, buttons, scoring guide, criterion headings and guidance text) to Bahasa Indonesia / Filipino / Tiếng Việt, swapped in by matching exact text nodes once `localStorage['wpdjLang']` is set at login. That approach doesn't carry over into WordPress as-is. Two real options:
+
+1. **Standard WordPress i18n** — wrap every UI string in `__()`/`_e()` with the plugin's text domain, ship `.po`/`.mo` translation files per language, load via `load_plugin_textdomain()`. Fastest to build, but editing wording after launch means editing translation files, not a wp-admin screen.
+2. **Custom "String Overrides" screen** — a simple key → {id, fil, vi} table in wp-admin (functionally the server-side equivalent of the current `PHRASES` object), editable without touching code. Slower to build but matches how Criteria Guidance and other client-editable copy already works elsewhere in this plan.
+
+Either way, this only covers **plugin-owned UI chrome** — nominee-submitted content (initiative descriptions, impact text, Cat 4 captions) is never machine-translated and always renders in whatever language it was submitted in, same scoping decision as the current mockup.
+
 ---
 
 ## 13. Roles & Capabilities
 
 | Role slug | Capability | Who | wp-admin access |
 |---|---|---|---|
-| `wpdj_admin` | Full CRUD on Submissions, Categories, Countries, Judges; view/override all Scores; import/export | SwipeRx Admin | ✅ Full "Judging Awards" menu |
+| `administrator` (built-in WP role) | Full CRUD on Submissions, Categories, Countries; create/manage Judging Admin accounts; create/import Judge accounts; view/override all Scores; import/export | The real WordPress Administrator (site owner/dev) | ✅ Full "Judging Awards" menu |
+| `wpdj_admin` | View aggregated progress across all countries via the front-end Admin Dashboard; export CSVs. **No CRUD capability on anything, no wp-admin access of any kind.** | Judging Admin (e.g. SwipeRx program manager) | ❌ None — front-end only, via `login-admin.html` |
 | `wpdj_judge` | View/score submissions matching their own `judge_country` only | Country judges | ❌ None — front-end only |
 
-Existing WordPress `administrator` accounts (site owner/dev) automatically get `wpdj_admin` capabilities too, so you're never locked out of your own plugin.
+On plugin activation, the "Judging Awards" wp-admin menu's capabilities are granted to the built-in `administrator` role automatically, so the real site owner is never locked out regardless of the specific capability names the plugin registers. `wpdj_admin` and `wpdj_judge` are intentionally kept capability-free in wp-admin — they exist only to gate what each front-end page shows.
 
 ---
 
@@ -303,14 +340,14 @@ Applies to both manual entry and CSV import:
 
 ## 16. Pre-Launch Checklist — "What Must Be Filled In"
 
-Before judges are given login credentials, SwipeRx Admin needs to have completed, in this order:
+Before judges (or the Judging Admin) are given login credentials, the WordPress Administrator needs to have completed, in this order:
 
 1. ☐ **Settings** — event name, scoring deadline, confirm supported languages
 2. ☐ **Countries** — confirm the 3 countries' hashtags/handles/platform are correct (esp. Vietnam = Facebook, not Instagram)
-3. ☐ **Categories** — confirm criteria + weights for all 4 categories sum to 100%
+3. ☐ **Categories** — confirm criteria, weights, and judge-facing guidance text for all 4 categories sum to 100%
 4. ☐ **Submissions** — either import via CSV or hand-enter every shortlisted nomination, then verify the "Shortlisted" toggle is `Yes` only on the entries judges should actually see
-5. ☐ **Judges** — create or import all judge accounts with correct Country assignment
-6. ☐ **Spot-check** — log in as one test judge per country and confirm: only their country's submissions appear, Cat 4 shows the correct handle/hashtags for that country, scoring saves correctly
+5. ☐ **Judging Admins & Judges** — create the Judging Admin account(s) for whoever will monitor the front-end dashboard, and create/import all Judge accounts with correct Country assignment
+6. ☐ **Spot-check** — log in as one test judge per country and as the test Judging Admin, and confirm: judges see only their country's submissions and Cat 4 shows the correct handle/hashtags for that country; the Judging Admin sees the progress dashboard and nothing else (no `/wp-admin/` access for either)
 
 Nothing on the judge-facing side becomes visible/usable until step 4 and 5 are both done — an empty Submissions list or a judge with no Country assigned should show a clear "nothing assigned yet" state rather than a blank/broken page.
 
@@ -337,6 +374,8 @@ Keeping these out of the first build on purpose — flag if any of these are act
 - Should `submission_code` auto-generate (e.g. next available `PH-CAT2-0XX`) or always come from an existing spreadsheet/import?
 - Any country beyond ID/PH/VN expected in future years? (Affects whether Countries should be a fixed 3-row config screen or a fully generic "add a country" screen — the plan above already assumes generic/extensible.)
 - Should the scoring deadline actually **block** judges from saving scores after it passes, or just be a display-only countdown for admin?
+- Should Previous/Next submission order be automatic (by Submission Code) or should admins be able to manually re-order a judge's queue (a "Display Order" field)?
+- UI translation: standard WordPress `.po`/`.mo` files, or a custom wp-admin "String Overrides" screen so wording can be tweaked without a developer? (See [Settings](#12-screen-settings).)
 
 ---
 
