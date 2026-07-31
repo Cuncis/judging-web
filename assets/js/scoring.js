@@ -1,4 +1,8 @@
-// Live score calculator for scoring pages (Cat 1-3 and Cat 4)
+// Live score calculator for scoring pages (Cat 1-3 and Cat 4), plus the
+// submission queue: Previous/Next walks Category 1 -> 2 -> 3 -> 4, submissions
+// in ascending code order within each category (see submissions-data.js),
+// and scores/comments persist per submission code in localStorage so a
+// judge can leave and come back without losing saved work.
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('[data-scoring-form]');
   if (!container) return;
@@ -19,8 +23,73 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedActions = document.querySelector('[data-saved-actions]');
   const editBtn = document.getElementById('editScoreBtn');
 
+  // --- Submission queue: resolve current submission, populate its detail
+  // fields, point Previous/Next at its neighbours in the full queue. ---
+  let currentItem = null;
+
+  function getScoreState(item) {
+    const stored = JSON.parse(localStorage.getItem('wpdjScores') || '{}');
+    if (stored[item.code]) return stored[item.code];
+    if (item.saved) return { scores: item.scores, comment: item.comment || '', saved: true };
+    return { scores: rows.map(() => 0), comment: '', saved: false };
+  }
+
+  function setScoreState(code, state) {
+    const stored = JSON.parse(localStorage.getItem('wpdjScores') || '{}');
+    stored[code] = state;
+    localStorage.setItem('wpdjScores', JSON.stringify(stored));
+  }
+
+  const category = document.body.dataset.category;
+  const judgeCountry = localStorage.getItem('wpdjCountry') || 'PH';
+  let state = null;
+
+  // Category 04 only has a full submission queue for the Philippines flow
+  // (see submissions-data.js); a judge logged in as ID/VN keeps seeing the
+  // single country-specific example from cat4-localize.js untouched.
+  const hasQueueForThisPage = category !== 'CAT4' || judgeCountry === 'PH';
+
+  if (hasQueueForThisPage && window.WPDJ_SUBMISSIONS && category && window.WPDJ_SUBMISSIONS[category]) {
+    const order = ['CAT1', 'CAT2', 'CAT3', 'CAT4'];
+    const queue = order.flatMap((c) => (window.WPDJ_SUBMISSIONS[c] || []).map((item) => ({ ...item, category: c })));
+    const codeParam = new URLSearchParams(window.location.search).get('code');
+    let currentIdx = queue.findIndex((i) => i.code === codeParam);
+    if (currentIdx < 0) currentIdx = queue.findIndex((i) => i.category === category);
+    currentItem = queue[currentIdx];
+
+    document.querySelectorAll('[data-field]').forEach((el) => {
+      const key = el.dataset.field;
+      if (key === 'hashtags') {
+        el.innerHTML = (currentItem.hashtags || []).map((t) => `<span class="tag-pill">${t}</span>`).join('');
+      } else if (currentItem[key] !== undefined) {
+        el.textContent = currentItem[key];
+      }
+    });
+
+    const prevLink = document.querySelector('[data-nav-prev]');
+    const nextLink = document.querySelector('[data-nav-next]');
+    if (prevLink && nextLink && queue.length) {
+      const prevItem = queue[(currentIdx - 1 + queue.length) % queue.length];
+      const nextItem = queue[(currentIdx + 1) % queue.length];
+      prevLink.href = `${window.WPDJ_CATEGORY_PAGES[prevItem.category]}?code=${prevItem.code}`;
+      nextLink.href = `${window.WPDJ_CATEGORY_PAGES[nextItem.category]}?code=${nextItem.code}`;
+    }
+
+    state = getScoreState(currentItem);
+    rows.forEach((row, i) => {
+      const range = row.querySelector('input[type="range"]');
+      const number = row.querySelector('input[type="number"]');
+      const display = row.querySelector('[data-score-display]');
+      const val = state.scores ? (state.scores[i] ?? 0) : 0;
+      range.value = val;
+      number.value = val;
+      if (display) display.textContent = val;
+    });
+    if (comments) comments.value = state.comment || '';
+  }
+
   function updateFill(range) {
-    const min = parseFloat(range.min || 1);
+    const min = parseFloat(range.min || 0);
     const max = parseFloat(range.max || 10);
     const pct = ((range.value - min) / (max - min)) * 100;
     range.style.setProperty('--fill', pct + '%');
@@ -59,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     number.addEventListener('input', () => {
       let val = parseInt(number.value, 10);
       if (isNaN(val)) return;
-      val = Math.min(10, Math.max(1, val));
+      val = Math.min(10, Math.max(0, val));
       number.value = val;
       range.value = val;
       display && (display.textContent = val);
@@ -109,6 +178,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       window.__wpdjDirty = false;
       setSavedState(true);
+      if (currentItem) {
+        const scores = rows.map((row) => parseInt(row.querySelector('input[type="range"]').value, 10));
+        setScoreState(currentItem.code, { scores, comment: comments.value, saved: true });
+      }
       if (toast) {
         toast.classList.add('open');
         setTimeout(() => toast.classList.remove('open'), 2600);
@@ -122,5 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  if (state) setSavedState(state.saved);
   recalc();
 });

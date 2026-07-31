@@ -5,6 +5,12 @@
 // on Facebook, and only Philippines has an Instagram handle suffixed
 // "_ph"). This mirrors the real per-country channel setup instead of
 // always showing the Philippines example regardless of judge country.
+//
+// For Philippines judges, scoring.js immediately overwrites this single
+// example with the correct submission from the full 10-item queue in
+// submissions-data.js (it runs right after this script). For ID/VN judges,
+// submissions-data.js has no queue, so this single localized example is
+// the final content shown.
 document.addEventListener('DOMContentLoaded', () => {
   if (!document.querySelector('[data-country-code]')) return;
 

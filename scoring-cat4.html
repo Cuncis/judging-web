@@ -69,7 +69,7 @@
   .tag-pill { font-size: 11px; padding: 0.2rem 0.6rem; border-radius: 100px; background: rgba(17,46,26,0.06); color: var(--forest); }
 </style>
 </head>
-<body>
+<body data-category="CAT4">
 
 <!-- NAV -->
 <nav id="top">
@@ -101,23 +101,23 @@
       <section class="card">
         <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
           <span class="badge-cat special">Category 04 · Social Media Impact</span>
-          <span class="badge-entry">Self</span>
+          <span class="badge-entry" data-field="entryType">Self</span>
         </div>
 
-        <p class="submission-code" data-country-code>PH-CAT4-001</p>
-        <h1 class="submission-title" data-country-handle>@theurbanfarmacist</h1>
+        <p class="submission-code" data-field="code" data-country-code>PH-CAT4-001</p>
+        <h1 class="submission-title" data-field="title" data-country-handle>@theurbanfarmacist</h1>
 
         <div class="post-preview">
           <div class="post-media">Post Preview (media placeholder)</div>
           <div class="post-body">
-            <p class="post-caption" data-country-caption>
+            <p class="post-caption" data-field="caption" data-country-caption>
               "5 things your pharmacist wishes you knew about treating a fever at home 🌡️ Save this before your
               next trip to the pharmacy! Registration link in bio 🔗 @swiperxapp_ph #TrustBeginsAtTheCounter #SwipeRxJoinTheMovement #SwipeRxWPD2026 #WPD2026PH"
             </p>
             <div class="post-stats">
-              <span data-country-likes>❤️ 4,820</span>
-              <span data-country-comments>💬 312</span>
-              <span data-country-shares>🔁 189</span>
+              <span data-field="likes" data-country-likes>❤️ 4,820</span>
+              <span data-field="comments" data-country-comments>💬 312</span>
+              <span data-field="shares" data-country-shares>🔁 189</span>
             </div>
           </div>
         </div>
@@ -125,19 +125,19 @@
         <dl class="meta-list">
           <div class="meta-row">
             <dt>Platform</dt>
-            <dd data-country-platform>Instagram</dd>
+            <dd data-field="platform" data-country-platform>Instagram</dd>
           </div>
           <div class="meta-row">
             <dt>Post Date</dt>
-            <dd>14 June 2026</dd>
+            <dd data-field="postDate">14 June 2026</dd>
           </div>
           <div class="meta-row">
             <dt>Post URL</dt>
-            <dd><a href="#" data-country-posturl>instagram.com/p/C8xY2f_urbanfarmacist</a></dd>
+            <dd><a href="#" data-field="postUrl" data-country-posturl>instagram.com/p/C8xY2f_urbanfarmacist</a></dd>
           </div>
           <div class="meta-row">
             <dt>Tags</dt>
-            <dd class="tag-list" data-country-tags>
+            <dd class="tag-list" data-field="hashtags" data-country-tags>
               <span class="tag-pill">#TrustBeginsAtTheCounter</span>
               <span class="tag-pill">#SwipeRxJoinTheMovement</span>
               <span class="tag-pill">#SwipeRxWPD2026</span>
@@ -158,8 +158,8 @@
       <!-- Scoring form -->
       <section class="card sticky-col">
         <div class="submission-nav">
-          <a href="scoring-cat3.html" data-guard-link class="submission-nav-link">&larr; Previous submission</a>
-          <a href="scoring-cat1.html" data-guard-link class="submission-nav-link">Next submission &rarr;</a>
+          <a href="scoring-cat3.html" data-guard-link class="submission-nav-link" data-nav-prev>&larr; Previous submission</a>
+          <a href="scoring-cat1.html" data-guard-link class="submission-nav-link" data-nav-next>Next submission &rarr;</a>
         </div>
         <h2 style="font-size:1.15rem; font-weight:800; color:var(--forest); margin-bottom:0.2rem;">Score This Submission</h2>
         <p style="font-size:12px; color:var(--body-text); margin-bottom:1.6rem;">Rate each criterion from 1 (lowest) to 10 (highest).</p>
@@ -192,11 +192,11 @@
                 <label>Creativity &amp; production quality<span class="weight">(40%)</span></label>
                 <p class="criterion-desc">How visually engaging, well-produced, and creative the content is in communicating the message.</p>
               </div>
-              <span class="value"><span data-score-display>8</span>/10</span>
+              <span class="value"><span data-score-display>0</span>/10</span>
             </div>
             <div class="score-input-row">
-              <input type="range" min="1" max="10" value="8" class="slider-fill" />
-              <input type="number" min="1" max="10" value="8" class="score-number" />
+              <input type="range" min="0" max="10" value="0" class="slider-fill" />
+              <input type="number" min="0" max="10" value="0" class="score-number" />
             </div>
           </div>
 
@@ -206,11 +206,11 @@
                 <label>Authenticity &amp; storytelling<span class="weight">(35%)</span></label>
                 <p class="criterion-desc">Whether the post feels genuine and tells a relatable story rather than a generic promotional message.</p>
               </div>
-              <span class="value"><span data-score-display>7</span>/10</span>
+              <span class="value"><span data-score-display>0</span>/10</span>
             </div>
             <div class="score-input-row">
-              <input type="range" min="1" max="10" value="7" class="slider-fill" />
-              <input type="number" min="1" max="10" value="7" class="score-number" />
+              <input type="range" min="0" max="10" value="0" class="slider-fill" />
+              <input type="number" min="0" max="10" value="0" class="score-number" />
             </div>
           </div>
 
@@ -220,11 +220,11 @@
                 <label>Pharmacy advocacy strength<span class="weight">(15%)</span></label>
                 <p class="criterion-desc">How clearly the post positions the pharmacist as a trusted source of self-care advice.</p>
               </div>
-              <span class="value"><span data-score-display>9</span>/10</span>
+              <span class="value"><span data-score-display>0</span>/10</span>
             </div>
             <div class="score-input-row">
-              <input type="range" min="1" max="10" value="9" class="slider-fill" />
-              <input type="number" min="1" max="10" value="9" class="score-number" />
+              <input type="range" min="0" max="10" value="0" class="slider-fill" />
+              <input type="number" min="0" max="10" value="0" class="score-number" />
             </div>
           </div>
 
@@ -234,11 +234,11 @@
                 <label>Campaign alignment<span class="weight">(10%)</span></label>
                 <p class="criterion-desc">Whether the post correctly uses the official hashtags, tagged handles, and campaign messaging.</p>
               </div>
-              <span class="value"><span data-score-display>8</span>/10</span>
+              <span class="value"><span data-score-display>0</span>/10</span>
             </div>
             <div class="score-input-row">
-              <input type="range" min="1" max="10" value="8" class="slider-fill" />
-              <input type="number" min="1" max="10" value="8" class="score-number" />
+              <input type="range" min="0" max="10" value="0" class="slider-fill" />
+              <input type="number" min="0" max="10" value="0" class="score-number" />
             </div>
           </div>
 
@@ -247,7 +247,7 @@
               <p class="label">Weighted Total</p>
               <p id="liveFormula" class="formula"></p>
             </div>
-            <p class="total"><span id="liveTotal">7.8</span><span class="of10">/10</span></p>
+            <p class="total"><span id="liveTotal">0.0</span><span class="of10">/10</span></p>
           </div>
 
           <div class="form-group" style="margin-bottom: 1.3rem;">
@@ -296,6 +296,7 @@
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/cat4-localize.js"></script>
 <script src="assets/js/nav.js"></script>
+<script src="assets/js/submissions-data.js"></script>
 <script src="assets/js/scoring.js"></script>
 </body>
 </html>

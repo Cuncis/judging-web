@@ -42,7 +42,7 @@
   .submission-nav-link:hover { text-decoration: underline; }
 </style>
 </head>
-<body>
+<body data-category="CAT2">
 
 <!-- NAV -->
 <nav id="top">
@@ -74,19 +74,19 @@
 
         <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
           <span class="badge-cat">Category 02 · Expanding Access</span>
-          <span class="badge-entry">Individual</span>
+          <span class="badge-entry" data-field="entryType">Individual</span>
         </div>
 
-        <p class="submission-code">PH-CAT2-007</p>
-        <h1 class="submission-title">Mobile Self-Care Kiosk for Remote Barangays</h1>
+        <p class="submission-code" data-field="code">PH-CAT2-007</p>
+        <h1 class="submission-title" data-field="title">Mobile Self-Care Kiosk for Remote Barangays</h1>
 
         <div class="field-block">
           <p class="field-label">Area of Practice</p>
-          <p class="field-value">Community Pharmacy, Mobile Outreach</p>
+          <p class="field-value" data-field="area">Community Pharmacy, Mobile Outreach</p>
         </div>
         <div class="field-block">
           <p class="field-label">About This Initiative</p>
-          <p class="field-value">
+          <p class="field-value" data-field="about">
             Set up a weekly mobile self-care kiosk that travels to remote barangays with no permanent pharmacy,
             offering low-cost over-the-counter essentials, basic health screenings, and guided product selection
             for common self-care needs.
@@ -94,14 +94,14 @@
         </div>
         <div class="field-block">
           <p class="field-label">Impact</p>
-          <p class="field-value">
+          <p class="field-value" data-field="impact">
             Reached 9 previously underserved barangays and served over 850 residents in 4 months, cutting the
             average travel distance to access self-care products from 12km to under 1km.
           </p>
         </div>
         <div class="field-block">
           <p class="field-label">Who Benefited</p>
-          <p class="field-value">
+          <p class="field-value" data-field="who">
             Residents of geographically isolated communities with limited transport access to town-centre pharmacies.
           </p>
         </div>
@@ -110,8 +110,8 @@
       <!-- Scoring form -->
       <section class="card sticky-col">
         <div class="submission-nav">
-          <a href="scoring-cat1.html" data-guard-link class="submission-nav-link">&larr; Previous submission</a>
-          <a href="scoring-cat3.html" data-guard-link class="submission-nav-link">Next submission &rarr;</a>
+          <a href="scoring-cat1.html" data-guard-link class="submission-nav-link" data-nav-prev>&larr; Previous submission</a>
+          <a href="scoring-cat3.html" data-guard-link class="submission-nav-link" data-nav-next>Next submission &rarr;</a>
         </div>
         <h2 style="font-size:1.15rem; font-weight:800; color:var(--forest); margin-bottom:0.2rem;">Score This Submission</h2>
         <p style="font-size:12px; color:var(--body-text); margin-bottom:1.6rem;">Rate each criterion from 1 (lowest) to 10 (highest).</p>
@@ -144,11 +144,11 @@
                 <label>Impact on patient outcomes<span class="weight">(40%)</span></label>
                 <p class="criterion-desc">How clearly the initiative leads to measurable improvements in patient health behaviour, adherence, or wellbeing.</p>
               </div>
-              <span class="value"><span data-score-display>8</span>/10</span>
+              <span class="value"><span data-score-display>0</span>/10</span>
             </div>
             <div class="score-input-row">
-              <input type="range" min="1" max="10" value="8" class="slider-fill" />
-              <input type="number" min="1" max="10" value="8" class="score-number" />
+              <input type="range" min="0" max="10" value="0" class="slider-fill" />
+              <input type="number" min="0" max="10" value="0" class="score-number" />
             </div>
           </div>
 
@@ -158,11 +158,11 @@
                 <label>Innovation &amp; approach<span class="weight">(20%)</span></label>
                 <p class="criterion-desc">How original or resourceful the approach is compared to standard practice.</p>
               </div>
-              <span class="value"><span data-score-display>7</span>/10</span>
+              <span class="value"><span data-score-display>0</span>/10</span>
             </div>
             <div class="score-input-row">
-              <input type="range" min="1" max="10" value="7" class="slider-fill" />
-              <input type="number" min="1" max="10" value="7" class="score-number" />
+              <input type="range" min="0" max="10" value="0" class="slider-fill" />
+              <input type="number" min="0" max="10" value="0" class="score-number" />
             </div>
           </div>
 
@@ -172,11 +172,11 @@
                 <label>Sustainability &amp; scalability<span class="weight">(20%)</span></label>
                 <p class="criterion-desc">Whether the initiative can continue long-term and be replicated in other pharmacies or communities.</p>
               </div>
-              <span class="value"><span data-score-display>8</span>/10</span>
+              <span class="value"><span data-score-display>0</span>/10</span>
             </div>
             <div class="score-input-row">
-              <input type="range" min="1" max="10" value="8" class="slider-fill" />
-              <input type="number" min="1" max="10" value="8" class="score-number" />
+              <input type="range" min="0" max="10" value="0" class="slider-fill" />
+              <input type="number" min="0" max="10" value="0" class="score-number" />
             </div>
           </div>
 
@@ -186,11 +186,11 @@
                 <label>Relevance to self-care pillar<span class="weight">(20%)</span></label>
                 <p class="criterion-desc">How directly the initiative supports self-care awareness, education, or access.</p>
               </div>
-              <span class="value"><span data-score-display>9</span>/10</span>
+              <span class="value"><span data-score-display>0</span>/10</span>
             </div>
             <div class="score-input-row">
-              <input type="range" min="1" max="10" value="9" class="slider-fill" />
-              <input type="number" min="1" max="10" value="9" class="score-number" />
+              <input type="range" min="0" max="10" value="0" class="slider-fill" />
+              <input type="number" min="0" max="10" value="0" class="score-number" />
             </div>
           </div>
 
@@ -199,7 +199,7 @@
               <p class="label">Weighted Total</p>
               <p id="liveFormula" class="formula"></p>
             </div>
-            <p class="total"><span id="liveTotal">8.2</span><span class="of10">/10</span></p>
+            <p class="total"><span id="liveTotal">0.0</span><span class="of10">/10</span></p>
           </div>
 
           <div class="form-group" style="margin-bottom: 1.3rem;">
@@ -247,6 +247,7 @@
 
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/nav.js"></script>
+<script src="assets/js/submissions-data.js"></script>
 <script src="assets/js/scoring.js"></script>
 </body>
 </html>
