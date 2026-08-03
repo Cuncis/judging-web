@@ -66,14 +66,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentIdx < 0) currentIdx = queue.findIndex((i) => i.category === category);
     currentItem = queue[currentIdx];
 
+    // Vietnam judges viewing the page in Vietnamese see the submission's own
+    // content (title/area/about/impact/who, or the Cat 4 caption) in the `vi`
+    // translation authored alongside each item in submissions-data.js, per
+    // client request; everyone else sees the English original as submitted.
+    const lang = window.wpdjI18n ? window.wpdjI18n.getLang() : (localStorage.getItem('wpdjLang') || 'en');
+    const useViContent = judgeCountry === 'VN' && lang === 'vi';
+
     document.querySelectorAll('[data-field]').forEach((el) => {
       const key = el.dataset.field;
       if (key === 'hashtags') {
         el.innerHTML = (currentItem.hashtags || []).map((t) => `<span class="tag-pill">${t}</span>`).join('');
-      } else if (currentItem[key] !== undefined) {
-        el.textContent = currentItem[key];
+      } else {
+        const value = useViContent && currentItem.vi && currentItem.vi[key] !== undefined
+          ? currentItem.vi[key]
+          : currentItem[key];
+        if (value !== undefined) el.textContent = value;
       }
     });
+
+    // Sample data stores entryType etc. as plain English ("Self"/"Team"/
+    // "Individual"); i18n.js already translated the page once on load, but
+    // that ran before this loop overwrote entryType with fresh English text,
+    // so re-apply it now the field is populated (submission title/description
+    // stay untranslated on purpose - see i18n.js's top-of-file note - only
+    // known UI phrases like Self/Team/Individual have PHRASES entries).
+    window.wpdjI18n?.apply();
 
     const prevLink = document.querySelector('[data-nav-prev]');
     const nextLink = document.querySelector('[data-nav-next]');

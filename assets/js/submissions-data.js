@@ -8,6 +8,13 @@
 // the judge dashboard. Once a judge actually saves or edits a score in the
 // browser, localStorage (see scoring.js) takes over as the source of truth
 // for that submission, and this seed is only used the first time.
+//
+// `vi` on each item is a Vietnamese rendering of that submission's own
+// content fields, shown only to a Vietnam judge who has switched the page
+// to Vietnamese (see scoring.js) — everyone else, and VN judges on English,
+// see the English original. This is a deliberate exception to the "nominee
+// content is shown as submitted, not machine-translated" rule i18n.js uses
+// elsewhere, made at the client's request specifically for Vietnam judges.
 window.WPDJ_CATEGORY_PAGES = {
   CAT1: 'scoring-cat1.html',
   CAT2: 'scoring-cat2.html',
@@ -24,6 +31,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Trained a group of patient volunteers as peer educators to run monthly diabetes self-management circles, covering blood glucose monitoring, foot care, and diet basics.',
       impact: '18 peer-led sessions reached 240 patients; average self-reported understanding scores rose by 30% on post-session quizzes.',
       who: 'Newly diagnosed Type 2 diabetes patients and their family caregivers.',
+      vi: {
+        title: 'Chương trình Giáo dục viên Đồng đẳng về Tự Quản lý Bệnh Tiểu đường',
+        area: 'Dược cộng đồng, Quản lý Bệnh mạn tính',
+        about: 'Đào tạo một nhóm bệnh nhân tình nguyện trở thành giáo dục viên đồng đẳng để tổ chức các buổi sinh hoạt hàng tháng về tự quản lý bệnh tiểu đường, bao gồm theo dõi đường huyết, chăm sóc bàn chân và kiến thức dinh dưỡng cơ bản.',
+        impact: '18 buổi sinh hoạt do đồng đẳng viên dẫn dắt đã tiếp cận 240 bệnh nhân; điểm tự đánh giá mức độ hiểu biết trung bình tăng 30% qua các bài kiểm tra sau buổi học.',
+        who: 'Bệnh nhân mới được chẩn đoán tiểu đường type 2 và người chăm sóc trong gia đình.',
+      },
       saved: true, scores: [9, 8, 8, 9], comment: 'Strong peer-led model with measurable understanding gains.',
     },
     {
@@ -33,6 +47,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Delivered a 6-part barangay hall talk series on reading prescription labels, storing medicines safely, and avoiding common drug interactions.',
       impact: 'Over 300 attendees across 6 barangays; 92% of surveyed attendees could correctly explain dosage timing afterward.',
       who: 'General barangay residents, with a focus on households with elderly members.',
+      vi: {
+        title: 'Chuỗi Buổi Nói chuyện Sức khỏe tại Khu phố về Sử dụng Thuốc Đúng cách',
+        area: 'Dược cộng đồng, Tiếp cận Vùng nông thôn',
+        about: 'Tổ chức chuỗi 6 buổi nói chuyện tại nhà văn hóa khu phố về cách đọc nhãn đơn thuốc, bảo quản thuốc an toàn và tránh các tương tác thuốc thường gặp.',
+        impact: 'Hơn 300 người tham dự tại 6 khu phố; 92% người tham dự được khảo sát có thể giải thích đúng thời điểm dùng thuốc sau buổi học.',
+        who: 'Cư dân khu phố nói chung, đặc biệt chú trọng các hộ gia đình có người cao tuổi.',
+      },
       saved: true, scores: [8, 7, 7, 8], comment: 'Good reach; could deepen the innovation angle in future runs.',
     },
     {
@@ -42,6 +63,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Launched a monthly medication literacy workshop series across five barangay health centres, teaching patients how to read prescription labels, understand dosage timing, and recognise common drug interactions using plain-language visual aids.',
       impact: 'Over 600 patients attended across 12 sessions in 6 months. Post-workshop surveys showed a 45% improvement in correct medication self-administration and a marked drop in reported adherence errors.',
       who: 'Elderly patients on chronic polypharmacy regimens, and caregivers of patients with limited health literacy.',
+      vi: {
+        title: 'Hội thảo Nâng cao Hiểu biết về Thuốc cho Cộng đồng',
+        area: 'Dược cộng đồng, Tiếp cận Vùng nông thôn',
+        about: 'Triển khai chuỗi hội thảo hàng tháng về hiểu biết thuốc tại năm trạm y tế khu phố, hướng dẫn bệnh nhân cách đọc nhãn đơn thuốc, hiểu thời điểm dùng thuốc và nhận biết các tương tác thuốc thường gặp bằng hình ảnh minh họa dễ hiểu.',
+        impact: 'Hơn 600 bệnh nhân đã tham dự qua 12 buổi trong 6 tháng. Khảo sát sau hội thảo cho thấy mức cải thiện 45% trong việc tự dùng thuốc đúng cách và giảm rõ rệt các lỗi tuân thủ điều trị được ghi nhận.',
+        who: 'Bệnh nhân cao tuổi đang dùng nhiều loại thuốc điều trị bệnh mạn tính, và người chăm sóc bệnh nhân có hiểu biết y tế hạn chế.',
+      },
       saved: true, scores: [8, 7, 8, 9], comment: 'Excellent reach and measurable literacy improvement; strong candidate for the category.',
     },
     {
@@ -51,6 +79,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Partnered with two public high schools to run a weekend bootcamp teaching teens how to safely use over-the-counter medicines and recognise when to see a pharmacist.',
       impact: '150 students trained across 2 schools; post-bootcamp survey showed 85% could correctly identify unsafe OTC combinations.',
       who: 'High school students aged 15-18 and their homeroom advisers.',
+      vi: {
+        title: 'Trại Huấn luyện Hiểu biết Sức khỏe cho Thanh thiếu niên',
+        area: 'Hợp tác Y tế Học đường',
+        about: 'Hợp tác với hai trường trung học công lập để tổ chức trại huấn luyện cuối tuần, dạy thanh thiếu niên cách sử dụng an toàn thuốc không kê đơn và nhận biết khi nào cần gặp dược sĩ.',
+        impact: '150 học sinh được đào tạo tại 2 trường; khảo sát sau trại huấn luyện cho thấy 85% có thể nhận biết đúng các kết hợp thuốc không kê đơn không an toàn.',
+        who: 'Học sinh trung học từ 15-18 tuổi và giáo viên chủ nhiệm.',
+      },
       saved: true, scores: [8, 9, 7, 8], comment: 'Creative youth-focused format with solid measurement.',
     },
     {
@@ -60,6 +95,13 @@ window.WPDJ_SUBMISSIONS = {
       about: "Set up a dedicated weekly 'Medicine Safety Corner' at the pharmacy counter offering one-on-one pill organizer setup and plain-language dosage reviews for senior citizens.",
       impact: 'Served 95 senior patients over 4 months; caregiver-reported missed-dose incidents dropped noticeably among repeat visitors.',
       who: 'Senior citizens on multiple daily medications and their caregivers.',
+      vi: {
+        title: 'Góc An toàn Thuốc cho Người Cao tuổi',
+        area: 'Chăm sóc Người Cao tuổi',
+        about: "Thiết lập 'Góc An toàn Thuốc' hàng tuần tại quầy dược, hỗ trợ sắp xếp hộp chia thuốc và tư vấn liều dùng dễ hiểu theo hình thức một-kèm-một cho người cao tuổi.",
+        impact: 'Phục vụ 95 bệnh nhân cao tuổi trong 4 tháng; số lần quên liều do người chăm sóc báo cáo giảm rõ rệt ở nhóm bệnh nhân quay lại thường xuyên.',
+        who: 'Người cao tuổi đang dùng nhiều loại thuốc hàng ngày và người chăm sóc của họ.',
+      },
       saved: true, scores: [9, 7, 9, 9], comment: 'Highly relevant to the self-care pillar with a vulnerable population focus.',
     },
     {
@@ -69,6 +111,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Developed colour-coded, icon-based pill organizer charts and one-on-one coaching sessions for patients with low reading literacy.',
       impact: 'Coached 40 patients one-on-one; caregivers reported clearer understanding of dosing schedules within the first two weeks.',
       who: 'Patients with limited literacy managing multiple daily medications.',
+      vi: {
+        title: 'Hướng dẫn Sử dụng Hộp chia Thuốc bằng Hình ảnh cho Bệnh nhân Hạn chế Đọc viết',
+        area: 'Hiểu biết Y tế',
+        about: 'Xây dựng bảng hộp chia thuốc bằng màu sắc và biểu tượng, kết hợp hướng dẫn trực tiếp một-kèm-một cho bệnh nhân có khả năng đọc viết hạn chế.',
+        impact: 'Hướng dẫn trực tiếp cho 40 bệnh nhân; người chăm sóc báo cáo hiểu rõ hơn về lịch dùng thuốc chỉ trong hai tuần đầu.',
+        who: 'Bệnh nhân có khả năng đọc viết hạn chế đang quản lý nhiều loại thuốc hàng ngày.',
+      },
       saved: true, scores: [8, 8, 7, 8], comment: 'Thoughtful, inclusive design tailored to a real access barrier.',
     },
     {
@@ -78,6 +127,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Ran pop-up education clinics at prenatal check-up sites covering safe medicine use during pregnancy and breastfeeding.',
       impact: 'Reached 110 expectant and new mothers across 5 pop-up sessions; follow-up calls showed high recall of key safety messages.',
       who: 'Pregnant women and breastfeeding mothers in the surrounding community.',
+      vi: {
+        title: 'Phòng khám Lưu động Giáo dục Sức khỏe Bà mẹ',
+        area: 'Sức khỏe Bà mẹ & Trẻ em',
+        about: 'Tổ chức các phòng khám giáo dục lưu động tại địa điểm khám thai, cung cấp kiến thức về sử dụng thuốc an toàn trong thai kỳ và cho con bú.',
+        impact: 'Tiếp cận 110 phụ nữ mang thai và bà mẹ mới sinh qua 5 buổi lưu động; các cuộc gọi theo dõi cho thấy khả năng ghi nhớ cao đối với các thông điệp an toàn quan trọng.',
+        who: 'Phụ nữ mang thai và bà mẹ đang cho con bú trong cộng đồng lân cận.',
+      },
       saved: true, scores: [9, 8, 8, 8], comment: 'Addresses an important and often under-served education gap.',
     },
     {
@@ -87,6 +143,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Partnered with a local manufacturing plant to deliver lunch-hour talks on managing common workplace ailments and OTC medicine safety.',
       impact: '8 sessions delivered to over 200 factory workers; plant HR reported an uptick in employees consulting the on-site pharmacist.',
       who: 'Shift workers at a partner manufacturing facility.',
+      vi: {
+        title: 'Chuỗi Buổi Học Sức khỏe Giờ Nghỉ trưa tại Nơi làm việc',
+        area: 'Sức khỏe Nghề nghiệp',
+        about: 'Hợp tác với một nhà máy sản xuất địa phương để tổ chức các buổi nói chuyện giờ nghỉ trưa về xử lý các bệnh thường gặp tại nơi làm việc và an toàn khi dùng thuốc không kê đơn.',
+        impact: 'Tổ chức 8 buổi cho hơn 200 công nhân nhà máy; bộ phận nhân sự ghi nhận số lượng nhân viên đến tư vấn dược sĩ tại chỗ tăng lên.',
+        who: 'Công nhân làm việc theo ca tại nhà máy đối tác.',
+      },
       saved: true, scores: [7, 8, 8, 7], comment: 'Solid workplace partnership; scalability to other employers looks promising.',
     },
     {
@@ -96,6 +159,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Supervised pharmacy students in running mobile health caravans at elementary schools, teaching basic hygiene and safe medicine handling to children.',
       impact: 'Visited 4 elementary schools reaching roughly 500 pupils; teachers reported improved handwashing and medicine-safety awareness.',
       who: 'Elementary school pupils and their teachers.',
+      vi: {
+        title: 'Đoàn Chăm sóc Sức khỏe Học đường do Sinh viên Dược Dẫn dắt',
+        area: 'Hợp tác Học thuật - Cộng đồng',
+        about: 'Giám sát sinh viên dược tổ chức các đoàn chăm sóc sức khỏe lưu động tại trường tiểu học, dạy trẻ em kiến thức vệ sinh cơ bản và cách xử lý thuốc an toàn.',
+        impact: 'Đã đến thăm 4 trường tiểu học, tiếp cận khoảng 500 học sinh; giáo viên ghi nhận cải thiện về thói quen rửa tay và nhận thức an toàn thuốc.',
+        who: 'Học sinh tiểu học và giáo viên của các em.',
+      },
       saved: true, scores: [8, 9, 8, 8], comment: 'Excellent innovation in student-pharmacist mentorship and reach.',
     },
     {
@@ -105,6 +175,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Introduced a standing weekly Q&A corner where patients with hypertension and diabetes could drop by for quick medicine-related questions without an appointment.',
       impact: 'Averaged 25 walk-in consultations per week over 3 months; several patients reported catching missed refills earlier as a result.',
       who: 'Patients managing hypertension and diabetes in the surrounding area.',
+      vi: {
+        title: 'Góc Hỏi đáp về Bệnh Mạn tính tại Quầy Dược',
+        area: 'Hỗ trợ Bệnh Mạn tính',
+        about: 'Thiết lập góc hỏi đáp hàng tuần cố định, nơi bệnh nhân tăng huyết áp và tiểu đường có thể ghé qua đặt câu hỏi nhanh liên quan đến thuốc mà không cần hẹn trước.',
+        impact: 'Trung bình 25 lượt tư vấn trực tiếp mỗi tuần trong 3 tháng; một số bệnh nhân cho biết đã phát hiện sớm hơn việc quên lấy thuốc tái khám nhờ đó.',
+        who: 'Bệnh nhân đang quản lý bệnh tăng huyết áp và tiểu đường trong khu vực lân cận.',
+      },
       saved: true, scores: [8, 7, 9, 8], comment: 'Simple, sustainable model that clearly supports self-care.',
     },
   ],
@@ -117,6 +194,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Installed a secure after-hours medicine locker outside the pharmacy so night-shift workers and emergency patients could collect pre-ordered essential medicines when the counter is closed.',
       impact: '142 after-hours pickups in the first quarter; reduced reported missed-dose incidents among shift workers relying on the service.',
       who: 'Night-shift workers and patients needing medicines outside regular pharmacy hours.',
+      vi: {
+        title: 'Tủ khóa Lấy Thuốc Ngoài giờ cho Người Làm ca Đêm',
+        area: 'Khả năng Tiếp cận & Sẵn có',
+        about: 'Lắp đặt tủ khóa an toàn để lấy thuốc ngoài giờ bên ngoài nhà thuốc, giúp người làm ca đêm và bệnh nhân cấp cứu có thể nhận thuốc thiết yếu đã đặt trước khi quầy thuốc đóng cửa.',
+        impact: '142 lượt lấy thuốc ngoài giờ trong quý đầu tiên; giảm số lần quên liều được báo cáo ở nhóm công nhân làm ca sử dụng dịch vụ này.',
+        who: 'Người làm ca đêm và bệnh nhân cần thuốc ngoài giờ hoạt động thông thường của nhà thuốc.',
+      },
       saved: true, scores: [8, 8, 7, 8], comment: 'Practical access solution addressing a clear community gap.',
     },
     {
@@ -126,6 +210,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Deployed a mobile pharmacy van to reach flood-prone communities that regularly lose access to their usual pharmacy during rainy season.',
       impact: 'Reached 6 flood-affected communities so far this season with essential medicine restocking.',
       who: 'Residents of flood-prone barangays temporarily cut off from regular pharmacy access.',
+      vi: {
+        title: 'Xe Dược Lưu động cho Vùng Thường xuyên Ngập lụt',
+        area: 'Tiếp cận Ứng phó Thiên tai',
+        about: 'Triển khai xe dược lưu động để tiếp cận các cộng đồng thường xuyên ngập lụt, nơi người dân mất khả năng đến nhà thuốc quen thuộc vào mùa mưa.',
+        impact: 'Đến nay đã tiếp cận 6 cộng đồng bị ảnh hưởng bởi lũ lụt trong mùa này để bổ sung thuốc thiết yếu.',
+        who: 'Cư dân các khu phố thường xuyên ngập lụt, tạm thời mất khả năng tiếp cận nhà thuốc thông thường.',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -135,6 +226,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Set up a rotating network of free blood pressure screening booths across partner sari-sari stores in underserved areas.',
       impact: 'Screening data collection is ongoing across the booth network.',
       who: 'Residents without regular access to primary care screening.',
+      vi: {
+        title: 'Mạng lưới Quầy Đo Huyết áp Miễn phí',
+        area: 'Tầm soát Phòng ngừa',
+        about: 'Thiết lập mạng lưới luân phiên các quầy đo huyết áp miễn phí tại các cửa hàng tạp hóa đối tác ở khu vực còn thiếu dịch vụ y tế.',
+        impact: 'Việc thu thập dữ liệu tầm soát đang được tiến hành trên toàn mạng lưới quầy.',
+        who: 'Cư dân không có điều kiện tiếp cận thường xuyên với dịch vụ tầm soát chăm sóc sức khỏe ban đầu.',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -144,6 +242,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Organised a volunteer-supported doorstep medicine delivery route for elderly patients who are unable to travel to the pharmacy.',
       impact: 'Completed over 200 deliveries to 35 regular homebound patients with zero missed refill reports.',
       who: 'Homebound elderly patients and persons with mobility limitations.',
+      vi: {
+        title: 'Giao Thuốc tận Nhà cho Người Cao tuổi Không thể Di chuyển',
+        area: 'Tiếp cận Chăm sóc tại Nhà',
+        about: 'Tổ chức tuyến giao thuốc tận nhà với sự hỗ trợ của tình nguyện viên cho bệnh nhân cao tuổi không thể di chuyển đến nhà thuốc.',
+        impact: 'Hoàn thành hơn 200 lượt giao hàng cho 35 bệnh nhân thường xuyên không thể di chuyển, không ghi nhận trường hợp quên lấy thuốc tái khám nào.',
+        who: 'Bệnh nhân cao tuổi không thể di chuyển và người gặp hạn chế về vận động.',
+      },
       saved: true, scores: [9, 7, 8, 9], comment: 'Directly expands access for a population that is easy to overlook.',
     },
     {
@@ -153,6 +258,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Introduced a sliding-scale pricing program for a defined list of essential maintenance medicines based on documented household income.',
       impact: 'Program enrollment and impact tracking are still in early stages.',
       who: 'Low-income patients on long-term maintenance medication.',
+      vi: {
+        title: 'Chương trình Định giá Linh hoạt cho Thuốc Thiết yếu',
+        area: 'Khả năng Chi trả',
+        about: 'Triển khai chương trình định giá linh hoạt cho danh mục thuốc duy trì thiết yếu dựa trên thu nhập hộ gia đình đã kê khai.',
+        impact: 'Việc đăng ký tham gia chương trình và theo dõi hiệu quả vẫn đang ở giai đoạn đầu.',
+        who: 'Bệnh nhân thu nhập thấp đang dùng thuốc duy trì dài hạn.',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -162,6 +274,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Launched a telepharmacy hotline allowing patients in island barangays without a resident pharmacist to consult by phone before travelling.',
       impact: 'Fielded 85 consultation calls in the pilot period, avoiding an estimated 40 unnecessary boat trips to the mainland pharmacy.',
       who: 'Residents of island barangays with no local pharmacist access.',
+      vi: {
+        title: 'Đường dây Tư vấn Dược từ Xa cho Khu phố Đảo',
+        area: 'Tiếp cận Y tế Từ xa',
+        about: 'Ra mắt đường dây nóng tư vấn dược từ xa, cho phép bệnh nhân tại các khu phố đảo không có dược sĩ thường trú được tư vấn qua điện thoại trước khi di chuyển.',
+        impact: 'Tiếp nhận 85 cuộc gọi tư vấn trong giai đoạn thí điểm, giúp tránh khoảng 40 chuyến đi thuyền không cần thiết đến nhà thuốc trên đất liền.',
+        who: 'Cư dân các khu phố đảo không có dược sĩ tại địa phương.',
+      },
       saved: true, scores: [9, 9, 8, 9], comment: 'Innovative, high-impact use of telehealth to close a real access gap.',
     },
     {
@@ -171,6 +290,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Deployed a solar-powered self-care kiosk to remote barangays on a rotating weekly schedule, offering basic health screenings and self-care product access where the nearest pharmacy is over an hour away.',
       impact: 'Served 5 barangays on a rotating basis, reaching an estimated 320 residents who previously had no nearby self-care access point.',
       who: 'Residents of remote barangays without a nearby pharmacy.',
+      vi: {
+        title: 'Ki-ốt Tự Chăm sóc Lưu động cho Khu phố Vùng sâu',
+        area: 'Dược cộng đồng, Tiếp cận Vùng nông thôn',
+        about: 'Triển khai ki-ốt tự chăm sóc chạy bằng năng lượng mặt trời đến các khu phố vùng sâu theo lịch luân phiên hàng tuần, cung cấp tầm soát sức khỏe cơ bản và các sản phẩm tự chăm sóc tại nơi nhà thuốc gần nhất cách hơn một giờ di chuyển.',
+        impact: 'Phục vụ luân phiên 5 khu phố, tiếp cận khoảng 320 cư dân trước đây không có điểm tiếp cận sản phẩm tự chăm sóc gần nơi sinh sống.',
+        who: 'Cư dân các khu phố vùng sâu không có nhà thuốc gần đó.',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -180,6 +306,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Set up a weekend pop-up pharmacy counter inside a busy public market to reach vendors and shoppers who rarely visit a fixed pharmacy location.',
       impact: 'Pop-up attendance is being tracked over the current market season.',
       who: 'Market vendors and shoppers with limited time to visit a fixed pharmacy.',
+      vi: {
+        title: 'Nhà Thuốc Lưu động Cuối tuần tại Chợ Công cộng',
+        area: 'Tiếp cận tại Chợ',
+        about: 'Thiết lập quầy nhà thuốc lưu động cuối tuần bên trong khu chợ đông đúc để tiếp cận tiểu thương và người mua sắm ít khi ghé nhà thuốc cố định.',
+        impact: 'Số lượt ghé quầy lưu động đang được theo dõi trong mùa chợ hiện tại.',
+        who: 'Tiểu thương và người mua sắm có ít thời gian ghé nhà thuốc cố định.',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -189,6 +322,13 @@ window.WPDJ_SUBMISSIONS = {
       about: "Partnered with a local tricycle drivers' association to offer same-day medicine delivery to households in areas without nearby transport.",
       impact: 'Early rollout covering 3 routes, with delivery volume increasing week over week.',
       who: 'Households in transport-limited areas needing same-day medicine delivery.',
+      vi: {
+        title: 'Hợp tác với Tài xế Xe lôi Địa phương để Tiếp cận Thuốc',
+        area: 'Giao hàng Chặng cuối',
+        about: 'Hợp tác với hiệp hội tài xế xe lôi địa phương để giao thuốc trong ngày cho các hộ gia đình ở khu vực không có phương tiện di chuyển gần đó.',
+        impact: 'Giai đoạn triển khai ban đầu phủ 3 tuyến đường, lượng giao hàng tăng dần theo từng tuần.',
+        who: 'Hộ gia đình ở khu vực hạn chế phương tiện di chuyển cần giao thuốc trong ngày.',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -198,6 +338,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Piloted a 24-hour hotline connecting callers to an on-call pharmacist for urgent medicine availability questions outside normal hours.',
       impact: 'Handled 60 after-hours calls in the pilot month, resolving most without requiring an emergency room visit.',
       who: 'Patients facing urgent medicine needs outside normal pharmacy hours.',
+      vi: {
+        title: 'Thí điểm Đường dây Nóng Thuốc Khẩn cấp 24 giờ',
+        area: 'Tiếp cận Khẩn cấp',
+        about: 'Thí điểm đường dây nóng 24 giờ kết nối người gọi với dược sĩ trực để giải đáp các câu hỏi khẩn cấp về thuốc ngoài giờ làm việc thông thường.',
+        impact: 'Xử lý 60 cuộc gọi ngoài giờ trong tháng thí điểm, giải quyết được phần lớn mà không cần đến phòng cấp cứu.',
+        who: 'Bệnh nhân có nhu cầu thuốc khẩn cấp ngoài giờ hoạt động thông thường của nhà thuốc.',
+      },
       saved: true, scores: [8, 9, 8, 7], comment: 'Fills a genuine after-hours gap; worth monitoring for sustainability.',
     },
   ],
@@ -210,6 +357,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Developed a standardized referral checklist and pathway for pharmacy staff to quickly escalate suspected dengue cases to the nearest health centre.',
       impact: 'Pathway is newly implemented; early cases have been referred using the new checklist.',
       who: 'Patients presenting with dengue warning signs at the pharmacy counter.',
+      vi: {
+        title: 'Quy trình Chuyển tuyến Chuẩn hóa cho Ca Nghi ngờ Sốt xuất huyết',
+        area: 'Chuyển tuyến & Báo động Khẩn',
+        about: 'Xây dựng danh mục kiểm tra và quy trình chuyển tuyến chuẩn hóa để nhân viên nhà thuốc nhanh chóng chuyển ca nghi ngờ sốt xuất huyết đến trạm y tế gần nhất.',
+        impact: 'Quy trình mới được triển khai; các ca đầu tiên đã được chuyển tuyến theo danh mục kiểm tra mới.',
+        who: 'Bệnh nhân có dấu hiệu cảnh báo sốt xuất huyết đến quầy dược.',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -219,6 +373,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Developed and trained staff on a structured protocol for recognising high-risk symptoms at the counter and escalating patients to the nearest clinic before a condition worsens.',
       impact: 'Protocol has been in use for two months, with several documented cases of timely escalation for symptoms that could have otherwise been missed.',
       who: 'Walk-in patients presenting with symptoms that may require urgent care.',
+      vi: {
+        title: 'Quy trình Báo động Sớm cho Triệu chứng Nguy cơ Cao',
+        area: 'Chuyển tuyến & Báo động Khẩn',
+        about: 'Xây dựng và đào tạo nhân viên về quy trình có cấu trúc để nhận biết các triệu chứng nguy cơ cao tại quầy dược và chuyển bệnh nhân đến phòng khám gần nhất trước khi bệnh tình trở nặng.',
+        impact: 'Quy trình đã được áp dụng trong hai tháng, ghi nhận một số trường hợp chuyển tuyến kịp thời đối với các triệu chứng có thể đã bị bỏ sót.',
+        who: 'Bệnh nhân đến trực tiếp với triệu chứng có thể cần chăm sóc khẩn cấp.',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -228,6 +389,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Created a red-flag symptom checklist to help pharmacy staff consistently identify when a walk-in patient needs urgent referral rather than OTC advice.',
       impact: 'Checklist is now in use at the counter; impact tracking is in early stages.',
       who: 'Walk-in patients presenting with potentially serious symptoms.',
+      vi: {
+        title: 'Danh mục Triệu chứng Cảnh báo do Dược sĩ Xây dựng',
+        area: 'Tầm soát Lâm sàng',
+        about: 'Xây dựng danh mục triệu chứng cảnh báo giúp nhân viên nhà thuốc nhận biết nhất quán khi nào bệnh nhân đến trực tiếp cần chuyển tuyến khẩn thay vì chỉ tư vấn thuốc không kê đơn.',
+        impact: 'Danh mục hiện đang được sử dụng tại quầy; việc theo dõi hiệu quả đang ở giai đoạn đầu.',
+        who: 'Bệnh nhân đến trực tiếp với triệu chứng có khả năng nghiêm trọng.',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -237,6 +405,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Formalised a cross-referral partnership with two nearby Rural Health Units to streamline patient hand-off for cases beyond pharmacy scope.',
       impact: 'Partnership recently signed; first referral cycle is underway.',
       who: 'Patients needing care beyond what the pharmacy can safely provide.',
+      vi: {
+        title: 'Hợp tác Chuyển tuyến Song phương với các Trạm Y tế Lân cận',
+        area: 'Điều phối Chăm sóc',
+        about: 'Chính thức hóa quan hệ hợp tác chuyển tuyến song phương với hai Trạm Y tế Nông thôn lân cận nhằm đơn giản hóa việc bàn giao bệnh nhân đối với các ca vượt quá phạm vi của nhà thuốc.',
+        impact: 'Thỏa thuận hợp tác vừa được ký kết; chu kỳ chuyển tuyến đầu tiên đang được tiến hành.',
+        who: 'Bệnh nhân cần chăm sóc vượt quá khả năng an toàn của nhà thuốc.',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -246,6 +421,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Introduced follow-up phone calls 48 hours after a pharmacist refers a patient elsewhere, to confirm they completed the recommended visit.',
       impact: 'Follow-up call program has just launched.',
       who: 'Patients referred out from the pharmacy for further care.',
+      vi: {
+        title: 'Chương trình Gọi điện Theo dõi Sau Tư vấn',
+        area: 'Tính Liên tục trong Chăm sóc',
+        about: 'Triển khai gọi điện theo dõi sau 48 giờ kể từ khi dược sĩ chuyển bệnh nhân đến nơi khác, nhằm xác nhận bệnh nhân đã hoàn thành lượt khám được khuyến nghị.',
+        impact: 'Chương trình gọi điện theo dõi vừa mới được triển khai.',
+        who: 'Bệnh nhân được nhà thuốc chuyển đi để chăm sóc thêm.',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -255,6 +437,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Designed a pocket-sized warning sign card handed to patients buying OTC symptom relief, listing signs that mean they should seek immediate care.',
       impact: 'Cards are being distributed at the counter; recall testing is planned.',
       who: 'Patients self-medicating for common symptoms.',
+      vi: {
+        title: 'Thẻ Dấu hiệu Cảnh báo cho Bệnh nhân Tự Dùng Thuốc',
+        area: 'Giáo dục Bệnh nhân & Chuyển tuyến',
+        about: 'Thiết kế thẻ cảnh báo bỏ túi phát cho bệnh nhân mua thuốc không kê đơn giảm triệu chứng, liệt kê các dấu hiệu cho thấy cần tìm kiếm chăm sóc y tế ngay.',
+        impact: 'Thẻ đang được phát tại quầy; việc kiểm tra khả năng ghi nhớ đang được lên kế hoạch.',
+        who: 'Bệnh nhân tự dùng thuốc để điều trị các triệu chứng thông thường.',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -264,6 +453,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Set up a dedicated triage corner where a pharmacist does a brief structured check before deciding between OTC advice, monitoring, or referral.',
       impact: 'Triage corner recently opened; case volume is being logged.',
       who: 'Walk-in patients with undifferentiated health concerns.',
+      vi: {
+        title: 'Góc Phân loại Cộng đồng cho Các Vấn đề Sức khỏe Đến Trực tiếp',
+        area: 'Phân loại Cộng đồng',
+        about: 'Thiết lập góc phân loại riêng, nơi dược sĩ thực hiện kiểm tra ngắn có cấu trúc trước khi quyết định tư vấn thuốc không kê đơn, theo dõi thêm hay chuyển tuyến.',
+        impact: 'Góc phân loại vừa mới mở; số lượng ca đang được ghi nhận.',
+        who: 'Bệnh nhân đến trực tiếp với các vấn đề sức khỏe chưa rõ ràng.',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -273,6 +469,13 @@ window.WPDJ_SUBMISSIONS = {
       about: "Maintains a simple logbook tracking chronic patients referred to specialists, to prompt follow-up if they haven't returned with an update.",
       impact: 'Logbook implementation is in its first month.',
       who: 'Chronic disease patients requiring specialist follow-up.',
+      vi: {
+        title: 'Sổ Theo dõi Chuyển tuyến cho Bệnh nhân Mạn tính',
+        area: 'Theo dõi Chuyển tuyến',
+        about: 'Duy trì sổ theo dõi đơn giản cho bệnh nhân mạn tính được chuyển đến bác sĩ chuyên khoa, nhằm nhắc nhở theo dõi nếu họ chưa quay lại cập nhật tình trạng.',
+        impact: 'Việc triển khai sổ theo dõi đang ở tháng đầu tiên.',
+        who: 'Bệnh nhân mắc bệnh mạn tính cần theo dõi bởi bác sĩ chuyên khoa.',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -282,6 +485,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Built a referral network with two local diagnostic clinics to fast-track lab work for patients the pharmacist flags as needing further testing.',
       impact: 'Network agreements are signed; first referrals are being processed.',
       who: 'Patients needing diagnostic testing beyond pharmacy scope.',
+      vi: {
+        title: 'Mạng lưới Hợp tác với các Phòng khám Chẩn đoán Địa phương',
+        area: 'Tiếp cận Chẩn đoán',
+        about: 'Xây dựng mạng lưới chuyển tuyến với hai phòng khám chẩn đoán địa phương để đẩy nhanh xét nghiệm cho bệnh nhân được dược sĩ đánh giá cần kiểm tra thêm.',
+        impact: 'Thỏa thuận mạng lưới đã được ký kết; các ca chuyển tuyến đầu tiên đang được xử lý.',
+        who: 'Bệnh nhân cần xét nghiệm chẩn đoán vượt quá phạm vi của nhà thuốc.',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -291,6 +501,13 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Coordinates occasional home visits for bedridden patients when a caregiver reports symptoms that may need pharmacist assessment before deciding on further care.',
       impact: 'Program has completed its first handful of home visits.',
       who: 'Bedridden patients and their primary caregivers.',
+      vi: {
+        title: 'Chương trình Thăm khám tại Nhà cho Bệnh nhân Nằm liệt Giường',
+        area: 'Báo động Khẩn tại Nhà',
+        about: 'Điều phối các lượt thăm khám tại nhà cho bệnh nhân nằm liệt giường khi người chăm sóc báo cáo triệu chứng có thể cần dược sĩ đánh giá trước khi quyết định chăm sóc tiếp theo.',
+        impact: 'Chương trình đã hoàn thành một số lượt thăm khám tại nhà đầu tiên.',
+        who: 'Bệnh nhân nằm liệt giường và người chăm sóc chính.',
+      },
       saved: false, scores: null, comment: '',
     },
   ],
@@ -302,6 +519,9 @@ window.WPDJ_SUBMISSIONS = {
       likes: '❤️ 4,820', comments: '💬 312', shares: '🔁 189',
       platform: 'Instagram', postUrl: 'instagram.com/p/C8xY2f_urbanfarmacist', postDate: '14 June 2026',
       hashtags: ['#TrustBeginsAtTheCounter', '#SwipeRxJoinTheMovement', '#SwipeRxWPD2026', '#WPD2026PH'],
+      vi: {
+        caption: '"5 điều dược sĩ của bạn muốn bạn biết về cách hạ sốt tại nhà 🌡️ Lưu lại bài này trước khi đến nhà thuốc lần sau! Link đăng ký có trong bio 🔗 @swiperxapp_ph #TrustBeginsAtTheCounter #SwipeRxJoinTheMovement #SwipeRxWPD2026 #WPD2026PH"',
+      },
       saved: true, scores: [8, 7, 9, 8], comment: 'Strong hook and clear tie-in to the campaign hashtags.',
     },
     {
@@ -310,6 +530,9 @@ window.WPDJ_SUBMISSIONS = {
       likes: '❤️ 3,410', comments: '💬 201', shares: '🔁 96',
       platform: 'Instagram', postUrl: 'instagram.com/p/C9k1p2_pharmacareph', postDate: '2 June 2026',
       hashtags: ['#TrustBeginsAtTheCounter', '#SwipeRxJoinTheMovement', '#SwipeRxWPD2026', '#WPD2026PH'],
+      vi: {
+        caption: '"Kem chống nắng không chỉ dùng khi đi biển ☀️ Đây là lý do dược sĩ của bạn muốn bạn thoa SPF mỗi ngày. Xem chi tiết đầy đủ trong bio 🔗 @swiperxapp_ph #TrustBeginsAtTheCounter #SwipeRxJoinTheMovement #SwipeRxWPD2026 #WPD2026PH"',
+      },
       saved: true, scores: [8, 8, 7, 9], comment: 'Clean, on-brand messaging with strong campaign alignment.',
     },
     {
@@ -318,6 +541,9 @@ window.WPDJ_SUBMISSIONS = {
       likes: '❤️ 2,150', comments: '💬 118', shares: '🔁 54',
       platform: 'Instagram', postUrl: 'instagram.com/p/C7m4x9_wellnesspharmacist', postDate: '19 June 2026',
       hashtags: ['#TrustBeginsAtTheCounter', '#SwipeRxJoinTheMovement', '#SwipeRxWPD2026', '#WPD2026PH'],
+      vi: {
+        caption: '"POV: cuối cùng bạn cũng hỏi dược sĩ về phản ứng lạ với thuốc dị ứng của mình 💊 Lưu lại bài này cho lần tái phát tiếp theo! @swiperxapp_ph #TrustBeginsAtTheCounter #SwipeRxJoinTheMovement #SwipeRxWPD2026 #WPD2026PH"',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -326,6 +552,9 @@ window.WPDJ_SUBMISSIONS = {
       likes: '❤️ 5,760', comments: '💬 402', shares: '🔁 271',
       platform: 'Instagram', postUrl: 'instagram.com/p/C6q7z1_rxandwellness', postDate: '27 May 2026',
       hashtags: ['#TrustBeginsAtTheCounter', '#SwipeRxJoinTheMovement', '#SwipeRxWPD2026', '#WPD2026PH'],
+      vi: {
+        caption: '"Tủ thuốc của bạn có lẽ đang khá lộn xộn. Đây là cách sắp xếp chỉ trong 5 phút mà dược sĩ của bạn luôn tin dùng 🗄️ Link trong bio 🔗 @swiperxapp_ph #TrustBeginsAtTheCounter #SwipeRxJoinTheMovement #SwipeRxWPD2026 #WPD2026PH"',
+      },
       saved: true, scores: [9, 8, 8, 9], comment: 'Highly shareable format with clear pharmacist authority.',
     },
     {
@@ -334,6 +563,9 @@ window.WPDJ_SUBMISSIONS = {
       likes: '❤️ 4,090', comments: '💬 233', shares: '🔁 150',
       platform: 'Instagram', postUrl: 'instagram.com/p/C5t2w8_askyourpharmacist', postDate: '10 June 2026',
       hashtags: ['#TrustBeginsAtTheCounter', '#SwipeRxJoinTheMovement', '#SwipeRxWPD2026', '#WPD2026PH'],
+      vi: {
+        caption: '"3 câu hỏi bạn nên luôn hỏi trước khi bắt đầu dùng một loại thuốc mới 🗣️ Mang theo danh sách này trong lần đến nhà thuốc tiếp theo! @swiperxapp_ph #TrustBeginsAtTheCounter #SwipeRxJoinTheMovement #SwipeRxWPD2026 #WPD2026PH"',
+      },
       saved: true, scores: [8, 9, 9, 8], comment: 'Genuinely useful, practical advice that fits the campaign well.',
     },
     {
@@ -342,6 +574,9 @@ window.WPDJ_SUBMISSIONS = {
       likes: '❤️ 6,230', comments: '💬 480', shares: '🔁 305',
       platform: 'Instagram', postUrl: 'instagram.com/p/C4v5a3_barangayrx', postDate: '5 June 2026',
       hashtags: ['#TrustBeginsAtTheCounter', '#SwipeRxJoinTheMovement', '#SwipeRxWPD2026', '#WPD2026PH'],
+      vi: {
+        caption: '"Gặp gỡ dược sĩ được cả khu phố tin tưởng 🏘️ Cùng xem một ngày làm việc của họ! @swiperxapp_ph #TrustBeginsAtTheCounter #SwipeRxJoinTheMovement #SwipeRxWPD2026 #WPD2026PH"',
+      },
       saved: true, scores: [9, 9, 9, 9], comment: 'Exceptional storytelling that strongly reinforces trust in pharmacists.',
     },
     {
@@ -350,6 +585,9 @@ window.WPDJ_SUBMISSIONS = {
       likes: '❤️ 2,870', comments: '💬 140', shares: '🔁 88',
       platform: 'Instagram', postUrl: 'instagram.com/p/C3x8d6_selfcaresquad', postDate: '22 June 2026',
       hashtags: ['#TrustBeginsAtTheCounter', '#SwipeRxJoinTheMovement', '#SwipeRxWPD2026', '#WPD2026PH'],
+      vi: {
+        caption: '"Chủ nhật tự chăm sóc bắt đầu từ dược sĩ của bạn 🧴 Gắn thẻ ai đó cần lời nhắc này! @swiperxapp_ph #TrustBeginsAtTheCounter #SwipeRxJoinTheMovement #SwipeRxWPD2026 #WPD2026PH"',
+      },
       saved: false, scores: null, comment: '',
     },
     {
@@ -358,6 +596,9 @@ window.WPDJ_SUBMISSIONS = {
       likes: '❤️ 3,980', comments: '💬 267', shares: '🔁 143',
       platform: 'Instagram', postUrl: 'instagram.com/p/C2z1f4_pharmatalk', postDate: '15 May 2026',
       hashtags: ['#TrustBeginsAtTheCounter', '#SwipeRxJoinTheMovement', '#SwipeRxWPD2026', '#WPD2026PH'],
+      vi: {
+        caption: '"Chúng tôi đã hỏi các dược sĩ về những hiểu lầm phổ biến nhất mà bệnh nhân thường tin. Câu trả lời của họ có thể khiến bạn bất ngờ 🎙️ @swiperxapp_ph #TrustBeginsAtTheCounter #SwipeRxJoinTheMovement #SwipeRxWPD2026 #WPD2026PH"',
+      },
       saved: true, scores: [8, 8, 8, 8], comment: 'Consistently strong across all criteria; solid campaign fit.',
     },
     {
@@ -366,6 +607,9 @@ window.WPDJ_SUBMISSIONS = {
       likes: '❤️ 4,510', comments: '💬 289', shares: '🔁 176',
       platform: 'Instagram', postUrl: 'instagram.com/p/C1b3g7_healthyhabitsrx', postDate: '29 June 2026',
       hashtags: ['#TrustBeginsAtTheCounter', '#SwipeRxJoinTheMovement', '#SwipeRxWPD2026', '#WPD2026PH'],
+      vi: {
+        caption: '"Thói quen nhỏ, khác biệt lớn: cách dược sĩ của bạn muốn bạn bảo quản thuốc 🌡️ Lưu lại và chia sẻ! @swiperxapp_ph #TrustBeginsAtTheCounter #SwipeRxJoinTheMovement #SwipeRxWPD2026 #WPD2026PH"',
+      },
       saved: true, scores: [8, 7, 9, 9], comment: 'Practical tip nicely tied back to the campaign hashtags.',
     },
     {
@@ -374,6 +618,9 @@ window.WPDJ_SUBMISSIONS = {
       likes: '❤️ 1,920', comments: '💬 97', shares: '🔁 61',
       platform: 'Instagram', postUrl: 'instagram.com/p/C0d6j2_pharmacynextdoor', postDate: '30 June 2026',
       hashtags: ['#TrustBeginsAtTheCounter', '#SwipeRxJoinTheMovement', '#SwipeRxWPD2026', '#WPD2026PH'],
+      vi: {
+        caption: '"Bạn không cần đặt hẹn để hỏi dược sĩ một câu hỏi 🚪 Chỉ cần ghé vào! @swiperxapp_ph #TrustBeginsAtTheCounter #SwipeRxJoinTheMovement #SwipeRxWPD2026 #WPD2026PH"',
+      },
       saved: false, scores: null, comment: '',
     },
   ],
