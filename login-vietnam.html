@@ -71,14 +71,24 @@
 <footer>
   <div class="footer-logo">Self-Care Excellence Awards 2026</div>
   <div class="footer-note">Confidential: authorised judges only · SwipeRx 2026</div>
+  <div class="footer-disclaimer hidden" data-vi-disclaimer>Tuyên bố miễn trừ trách nhiệm (Disclaimer): Trang web này được dịch bằng AI. Mặc dù chúng tôi đã nỗ lực đảm bảo tính chính xác, bản dịch vẫn có thể có sai sót. Trong trường hợp có bất kỳ khác biệt nào, bản tiếng Anh sẽ được ưu tiên áp dụng.</div>
 </footer>
 
 <script src="assets/js/nav.js"></script>
 <script>
   // Demo only: real build posts to WP auth + redirects on success.
+  const languageSelect = document.getElementById('language');
+  const viDisclaimer = document.querySelector('[data-vi-disclaimer]');
+
+  function syncViDisclaimer() {
+    viDisclaimer?.classList.toggle('hidden', languageSelect.value !== 'vi');
+  }
+  languageSelect.addEventListener('change', syncViDisclaimer);
+  syncViDisclaimer();
+
   document.getElementById('loginForm').addEventListener('submit', (e) => {
     e.preventDefault();
-    const lang = document.getElementById('language').value;
+    const lang = languageSelect.value;
     localStorage.setItem('wpdjLang', lang);
     localStorage.setItem('wpdjCountry', 'VN');
     window.location.href = `judge-dashboard.html?country=VN&lang=${lang}`;

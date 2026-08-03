@@ -74,8 +74,8 @@
   </button>
   <ul class="nav-links">
     <li><a href="judge-dashboard.html" class="active">Dashboard</a></li>
-    <li><span class="nav-pill"><span class="flag-icon flag-ph"></span> Philippines</span></li>
-    <li><span class="nav-meta">Dr. Maria Santos</span></li>
+    <li><span class="nav-pill"><span class="flag-icon flag-ph" data-judge-flag></span> <span data-judge-country>Philippines</span></span></li>
+    <li><span class="nav-meta" data-judge-name>Dr. Maria Santos</span></li>
     <li><a href="index.html" class="btn-outline-light">Sign Out</a></li>
   </ul>
 </nav>
@@ -84,8 +84,8 @@
 <section class="page-hero">
   <div class="page-hero-inner">
     <p class="page-hero-label">Judge Dashboard</p>
-    <h1 class="page-hero-title">Welcome, Dr. Maria Santos</h1>
-    <p class="page-hero-sub">Here is your scoring progress for Philippines.</p>
+    <h1 class="page-hero-title" data-judge-welcome>Welcome, Dr. Maria Santos</h1>
+    <p class="page-hero-sub" data-judge-subtitle>Here is your scoring progress for Philippines.</p>
   </div>
 </section>
 
@@ -466,10 +466,12 @@
 <footer>
   <div class="footer-logo">Self-Care Excellence Awards 2026</div>
   <div class="footer-note">Confidential: authorised judges only · SwipeRx 2026</div>
+  <div class="footer-disclaimer hidden" data-vi-disclaimer>Tuyên bố miễn trừ trách nhiệm (Disclaimer): Trang web này được dịch bằng AI. Mặc dù chúng tôi đã nỗ lực đảm bảo tính chính xác, bản dịch vẫn có thể có sai sót. Trong trường hợp có bất kỳ khác biệt nào, bản tiếng Anh sẽ được ưu tiên áp dụng.</div>
 </footer>
 
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/nav.js"></script>
+<script src="assets/js/judge-country.js"></script>
 <script src="assets/js/judge-dashboard.js"></script>
 </body>
 </html>

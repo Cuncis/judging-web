@@ -189,6 +189,14 @@
   function translatePage() {
     const lang = getLang();
     document.documentElement.setAttribute('lang', HTML_LANG[lang] || 'en');
+
+    // Vietnam-only AI-translation disclaimer: only ever shown when a Vietnam
+    // judge has actually switched the page to Vietnamese (not for ID/PH,
+    // whose language dropdown is hidden/forced to English at login).
+    document.querySelectorAll('[data-vi-disclaimer]').forEach((el) => {
+      el.classList.toggle('hidden', lang !== 'vi');
+    });
+
     if (lang === 'en') return;
 
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
