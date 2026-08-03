@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     VN: { flagClass: 'flag-vn', countryName: 'Vietnam', judgeName: 'Dr. Linh Nguyen' },
   };
 
-  const judge = JUDGES[localStorage.getItem('wpdjCountry')] || JUDGES.PH;
+  const countryCode = localStorage.getItem('wpdjCountry') || 'PH';
+  const judge = JUDGES[countryCode] || JUDGES.PH;
 
   const flagEl = document.querySelector('[data-judge-flag]');
   if (flagEl) {
@@ -34,4 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const subtitleEl = document.querySelector('[data-judge-subtitle]');
   if (subtitleEl) subtitleEl.textContent = `Here is your scoring progress for ${judge.countryName}.`;
+
+  // Sample submission codes are authored as PH-CATx-0NN (see submissions-data.js);
+  // relabel the prefix to match the judge's own country so a VN/ID judge sees
+  // VN-/ID- codes instead of Philippines codes, on the dashboard table and its
+  // "Review/Start/Score Now" links.
+  document.querySelectorAll('[data-submissions-table] tbody .font-mono-code').forEach((cell) => {
+    cell.textContent = cell.textContent.replace(/^PH-/, `${countryCode}-`);
+  });
+  document.querySelectorAll('[data-submissions-table] tbody a[href*="code=PH-"]').forEach((link) => {
+    link.setAttribute('href', link.getAttribute('href').replace('code=PH-', `code=${countryCode}-`));
+  });
 });

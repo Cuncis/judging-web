@@ -52,6 +52,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (hasQueueForThisPage && window.WPDJ_SUBMISSIONS && category && window.WPDJ_SUBMISSIONS[category]) {
     const order = ['CAT1', 'CAT2', 'CAT3', 'CAT4'];
     const queue = order.flatMap((c) => (window.WPDJ_SUBMISSIONS[c] || []).map((item) => ({ ...item, category: c })));
+
+    // Sample data is authored as PH-CATx-0NN; relabel the prefix to match the
+    // judge's own country (see judge-country.js, which does the same for the
+    // dashboard table) so the code shown/linked/persisted-against is ID-/VN-
+    // for those judges instead of always Philippines.
+    queue.forEach((item) => {
+      item.code = item.code.replace(/^PH-/, `${judgeCountry}-`);
+    });
+
     const codeParam = new URLSearchParams(window.location.search).get('code');
     let currentIdx = queue.findIndex((i) => i.code === codeParam);
     if (currentIdx < 0) currentIdx = queue.findIndex((i) => i.category === category);
