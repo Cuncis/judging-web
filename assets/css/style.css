@@ -178,7 +178,10 @@ body.has-banner nav {
    ========================================================================== */
 
 .page-hero {
-  margin-top: 62px;
+  /* Matches the fixed nav's actual rendered height at this width (nav-links
+     row makes it taller than the collapsed mobile nav below) so the hero
+     starts exactly where the nav ends - no gap, no overlap. */
+  margin-top: 74px;
   background: var(--forest);
   padding: 3.5rem 3rem;
   position: relative;
@@ -1254,6 +1257,9 @@ footer {
   }
 
   .page-hero {
+    /* Nav collapses to just the logo + hamburger row below 900px, so it's
+       shorter than the desktop nav-links row - match that here too. */
+    margin-top: 57px;
     padding: 2.5rem 1.5rem;
   }
 
@@ -1282,67 +1288,5 @@ footer {
     flex-direction: column;
     text-align: center;
     padding: 1.5rem;
-  }
-}
-
-/* Judge dashboard's submissions table: below 680px a 5-column table has no
-   room left even with horizontal scroll, so it becomes a stacked list of
-   cards instead (one per submission), each field labelled via data-label.
-   Scoped to [data-submissions-table] only - the admin dashboard's judge
-   comparison table is a wide matrix that's meant to scroll horizontally
-   (see its "Scroll table sideways" hint) and shouldn't be touched here. */
-@media (max-width: 680px) {
-  [data-submissions-table] {
-    display: block;
-  }
-
-  [data-submissions-table] thead {
-    display: none;
-  }
-
-  [data-submissions-table] tbody {
-    display: block;
-  }
-
-  [data-submissions-table] tr {
-    display: block;
-    padding: 1rem 1.1rem;
-    border-top: 1px solid rgba(17, 46, 26, 0.08);
-  }
-
-  [data-submissions-table] tr:first-child {
-    border-top: none;
-  }
-
-  [data-submissions-table] td {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    padding: 0.3rem 0;
-    border: none;
-  }
-
-  [data-submissions-table] td[data-label="Submission Code"] {
-    font-size: 0.95rem;
-    font-weight: 700;
-  }
-
-  [data-submissions-table] td::before {
-    content: attr(data-label);
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: rgba(17, 46, 26, 0.45);
-  }
-
-  [data-submissions-table] td[data-label="Submission Code"]::before,
-  [data-submissions-table] td[data-label="Category"]::before {
-    display: none;
-  }
-
-  [data-submissions-table] td[data-label="Action"] {
-    padding-top: 0.6rem;
   }
 }
