@@ -16,9 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const COUNTRIES = {
     ID: {
-      flagClass: 'flag-id',
-      countryName: 'Indonesia',
-      judgeName: 'Dr. Ratna Wijaya',
       code: 'ID-CAT4-001',
       handle: '@apotekerkita',
       platform: 'Instagram',
@@ -28,9 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
       hashtags: ['#TrustBeginsAtTheCounter', '#SwipeRxJoinTheMovement', '#SwipeRxWPD2026', '#WPD2026ID'],
     },
     PH: {
-      flagClass: 'flag-ph',
-      countryName: 'Philippines',
-      judgeName: 'Dr. Maria Santos',
       code: 'PH-CAT4-001',
       handle: '@theurbanfarmacist',
       platform: 'Instagram',
@@ -40,9 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
       hashtags: ['#TrustBeginsAtTheCounter', '#SwipeRxJoinTheMovement', '#SwipeRxWPD2026', '#WPD2026PH'],
     },
     VN: {
-      flagClass: 'flag-vn',
-      countryName: 'Vietnam',
-      judgeName: 'Dr. Linh Nguyen',
       code: 'VN-CAT4-001',
       handle: '@duocsi.tam',
       platform: 'Facebook',
@@ -55,18 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const country = COUNTRIES[localStorage.getItem('wpdjCountry')] || COUNTRIES.PH;
 
-  const flagEl = document.querySelector('[data-country-flag]');
-  if (flagEl) {
-    flagEl.classList.remove('flag-id', 'flag-ph', 'flag-vn');
-    flagEl.classList.add(country.flagClass);
-  }
+  // Header nav flag/country/judge name is handled by judge-country.js
+  // (shared with the dashboard and Cat 1-3 pages) via [data-judge-*].
   const set = (selector, value) => {
     const el = document.querySelector(selector);
     if (el) el.textContent = value;
   };
 
-  set('[data-country-name]', country.countryName);
-  set('[data-country-judge]', country.judgeName);
   set('[data-country-code]', country.code);
   set('[data-country-handle]', country.handle);
   set('[data-country-caption]', country.caption);
