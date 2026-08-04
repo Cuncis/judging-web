@@ -7,9 +7,9 @@
 // logged-in WP user, not a hardcoded lookup table.
 document.addEventListener('DOMContentLoaded', () => {
   const JUDGES = {
-    ID: { flagClass: 'flag-id', countryName: 'Indonesia', judgeName: 'Dr. Ratna Wijaya' },
-    PH: { flagClass: 'flag-ph', countryName: 'Philippines', judgeName: 'Dr. Maria Santos' },
-    VN: { flagClass: 'flag-vn', countryName: 'Vietnam', judgeName: 'Dr. Linh Nguyen' },
+    ID: { flagClass: 'flag-id', countryName: 'Indonesia', judgeName: 'Quang Long Tran' },
+    PH: { flagClass: 'flag-ph', countryName: 'Philippines', judgeName: 'Dr. Kenny James Merin' },
+    VN: { flagClass: 'flag-vn', countryName: 'Vietnam', judgeName: 'Prof. Dr. Nguyen Tuan Dung' },
   };
 
   const countryCode = localStorage.getItem('wpdjCountry') || 'PH';
@@ -35,6 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const subtitleEl = document.querySelector('[data-judge-subtitle]');
   if (subtitleEl) subtitleEl.textContent = `Here is your scoring progress for ${judge.countryName}.`;
+
+  // i18n.js's translatePage() runs on the same DOMContentLoaded event but is
+  // registered first (see script tag order), so it translates the hero's
+  // stale default text before the real name/country above ever lands. Re-run
+  // it now so a Vietnam judge in vi still gets a translated welcome/subtitle.
+  window.wpdjI18n?.apply();
 
   // Sample submission codes are authored as PH-CATx-0NN (see submissions-data.js);
   // relabel the prefix to match the judge's own country so a VN/ID judge sees

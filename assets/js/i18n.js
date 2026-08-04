@@ -18,8 +18,12 @@
 
     // Judge dashboard hero
     'Judge Dashboard': { id: 'Dasbor Juri', fil: 'Dashboard ng Hukom', vi: 'Bảng điều khiển Giám khảo' },
-    'Welcome, Dr. Maria Santos': { id: 'Selamat datang, Dr. Maria Santos', fil: 'Maligayang pagdating, Dr. Maria Santos', vi: 'Chào mừng, Dr. Maria Santos' },
+    'Welcome, Dr. Kenny James Merin': { id: 'Selamat datang, Dr. Kenny James Merin', fil: 'Maligayang pagdating, Dr. Kenny James Merin', vi: 'Chào mừng, Dr. Kenny James Merin' },
+    'Welcome, Quang Long Tran': { id: 'Selamat datang, Quang Long Tran', fil: 'Maligayang pagdating, Quang Long Tran', vi: 'Chào mừng, Quang Long Tran' },
+    'Welcome, Prof. Dr. Nguyen Tuan Dung': { id: 'Selamat datang, Prof. Dr. Nguyen Tuan Dung', fil: 'Maligayang pagdating, Prof. Dr. Nguyen Tuan Dung', vi: 'Chào mừng, GS. TS. Nguyễn Tuấn Dũng' },
     'Here is your scoring progress for Philippines.': { id: 'Berikut progres penilaian Anda untuk Filipina.', fil: 'Narito ang iyong progreso sa pag-score para sa Pilipinas.', vi: 'Đây là tiến độ chấm điểm của bạn cho Philippines.' },
+    'Here is your scoring progress for Indonesia.': { id: 'Berikut progres penilaian Anda untuk Indonesia.', fil: 'Narito ang iyong progreso sa pag-score para sa Indonesia.', vi: 'Đây là tiến độ chấm điểm của bạn cho Indonesia.' },
+    'Here is your scoring progress for Vietnam.': { id: 'Berikut progres penilaian Anda untuk Vietnam.', fil: 'Narito ang iyong progreso sa pag-score para sa Vietnam.', vi: 'Đây là tiến độ chấm điểm của bạn cho Việt Nam.' },
     'Overall Progress': { id: 'Progres Keseluruhan', fil: 'Kabuuang Progreso', vi: 'Tiến độ chung' },
     '21 of 40 submissions scored': { id: '21 dari 40 pengajuan telah dinilai', fil: '21 sa 40 na submission ang na-score na', vi: 'Đã chấm 21/40 bài dự thi' },
 
