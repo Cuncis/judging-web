@@ -164,6 +164,7 @@ Imported (or entered) by the SwipeRx Admin before judging opens. The post title 
 | `about` | Textarea | Cat 1–3 only |
 | `impact` | Textarea | Cat 1–3 only |
 | `who_benefited` | Textarea | Cat 1–3 only |
+| `supporting_materials` | URL | Cat 1–3 only — optional; judges see "Click here" if present, "-" if blank |
 | `swiperx_notes` | Textarea | Internal SwipeRx notes |
 | `social_handle` | Text | Cat 4 only |
 | `platform` | Select | Instagram / TikTok / Facebook — Cat 4 only |
@@ -416,7 +417,7 @@ WordPress stores all data in its standard tables. No custom DB tables are requir
 
 Each shortlisted nomination is a `wpdj_submission` post. Meta fields are managed by ACF and stored in `wp_postmeta`.
 
-**Key post meta keys:** `_submission_code`, `_country`, `_category`, `_entry_type`, `_initiative_title`, `_area_of_practice`, `_about`, `_impact`, `_who_benefited`, `_swiperx_notes`, `_social_handle`, `_platform`, `_post_date`, `_post_url`, `_post_caption`, `_tags`, `_swiperx_tagged`, `_campaign_link_included`, `_shortlisted`
+**Key post meta keys:** `_submission_code`, `_country`, `_category`, `_entry_type`, `_initiative_title`, `_area_of_practice`, `_about`, `_impact`, `_who_benefited`, `_supporting_materials`, `_swiperx_notes`, `_social_handle`, `_platform`, `_post_date`, `_post_url`, `_post_caption`, `_tags`, `_swiperx_tagged`, `_campaign_link_included`, `_shortlisted`
 
 ### `wpdj_score` posts
 

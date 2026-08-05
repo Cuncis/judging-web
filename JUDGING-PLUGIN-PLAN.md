@@ -72,10 +72,9 @@ Judging Awards                          (top-level menu, dashicons-awards)
 ├── Import Submissions                  (CSV bulk upload)
 ├── Categories                          (the 4 award categories + criteria/weights)
 ├── Countries                           (ID / PH / VN + hashtags, handles, judge quota)
-├── Judging Admins                      (wpdj_admin accounts — front-end progress dashboard only)
-│   └── Add New Judging Admin
-├── Judges                              (wpdj_judge accounts — front-end scoring only)
-│   └── Add / Import Judges
+├── Users                                (one list — wpdj_admin / wpdj_judge, checkable per user, see §9)
+│   ├── Add New User
+│   └── Import Judges                   (CSV, Judge access only — see §10)
 ├── Scores                              (read-only, judge-submitted — with manual override)
 ├── Export                              (CSV: submissions / scores / judge progress)
 └── Settings                            (event name, deadline, footer text, languages)
@@ -94,7 +93,7 @@ Read-only summary shown the moment the WordPress Administrator clicks "Judging A
 | Scoring progress | % complete overall + per country (same numbers as the front-end Admin Dashboard) |
 | Judges | Count per country, with a "not yet scored anything" flag for stragglers |
 | Deadline | Scoring deadline countdown (from Settings) |
-| Quick links | "Import Submissions", "Add Judge", "Add Judging Admin", "View Front-End Dashboard" |
+| Quick links | "Import Submissions", "Add New User" (§9), "View Front-End Dashboard" |
 
 ---
 
@@ -117,13 +116,14 @@ CPT: `wpdj_submission`. This is the biggest data-entry surface — one row per s
 
 ### Fields — Categories 1–3 only (blinded from judges)
 
-| Field | Type | Required |
-|---|---|---|
-| Initiative Title | Text | ✅ |
-| Area of Practice | Text | ✅ |
-| About This Initiative | Textarea | ✅ |
-| Impact | Textarea | ✅ |
-| Who Benefited | Textarea | ✅ |
+| Field | Type | Required | Notes |
+|---|---|---|---|
+| Initiative Title | Text | ✅ | |
+| Area of Practice | Text | ✅ | |
+| About This Initiative | Textarea | ✅ | |
+| Impact | Textarea | ✅ | |
+| Who Benefited | Textarea | ✅ | |
+| Supporting Materials | URL | — | Optional link (e.g. Google Drive) to supplementary documents/photos; judges see "Click here" if present, "-" if left blank |
 
 > ⚠️ Nominee name, workplace, phone, and email are **intentionally not fields at all** — Cat 1–3 judging is blind. Don't add them even as "admin-only" fields; if they exist in the DB there's a real risk they leak into a future template.
 
@@ -214,35 +214,29 @@ Also admin-configurable rather than hardcoded — useful since the campaign hash
 
 ## 9. Screen: Judging Admins & Judges
 
-Both roles below are **WordPress Users with a custom role**, and both are created here, by the real WordPress Administrator, inside wp-admin. Neither role is ever granted `/wp-admin/` access — this screen exists purely so the Administrator can provision their accounts. Once created, each person logs into their own front-end page (`login-admin.html` or a country's `login-{country}.html`) exactly as already built in this mockup.
+Both accesses below are granted to **WordPress Users**, created here by the real WordPress Administrator, inside wp-admin. Neither is ever granted `/wp-admin/` access — this screen exists purely so the Administrator can provision front-end accounts. Once created, each person logs into their own front-end page (`login-admin.html` or a country's `login-{country}.html`) exactly as already built in this mockup.
 
-### Judging Admins (`wpdj_admin`)
+**One "Add / Edit User" form, not two separate roles.** Judging Admin access and Judge access are independent checkboxes on the same user record, not a single either/or role picker — the same person can have one, the other, or both at once (e.g. a program manager who also wants to score their own country's submissions with the same login). Checking a box reveals that access's own fields below it; at least one box must be checked to save the user.
 
-Front-end-only role for whoever needs to watch overall judging progress without scoring anything — e.g. a SwipeRx program manager. Logs in at `login-admin.html`, sees only the front-end `admin-dashboard.html` (progress across all 3 countries, judge progress table, CSV export). Not scoped to a single country, since their job is to see everything.
+| Access checkbox | Grants (`current_user_can()`) | Fields shown when checked |
+|---|---|---|
+| ☐ **Judging Admin access** (`wpdj_admin`) | Can log in at `login-admin.html` and see the front-end `admin-dashboard.html` — progress across all 3 countries, judge progress table, CSV export. Not scoped to a single country. | *(none beyond the shared fields below)* |
+| ☐ **Judge access** (`wpdj_judge`) | Can log in at their assigned country's `login-{country}.html` and score that country's shortlisted submissions across all 4 categories. **No manual per-judge submission assignment** — every judge in a country reviews every shortlisted submission for that country (true panel-splitting is a Phase 2 change, see §17). | Country (Select: ID / PH / VN, required — stored as user meta `judge_country`), Preferred Language default (Select: native / English — pre-fills the login-page language dropdown; still switchable at login) |
 
-| Field | Type | Required | Notes |
-|---|---|---|---|
-| Name | Text | ✅ | WP display name |
-| Email | Email | ✅ | WP username/login |
-| Password | Auto-generate + email, or set manually | ✅ | Standard WP `wp_hash_password()` |
-| Active | Toggle | ✅ | Deactivate to revoke access without deleting the account |
-
-There are typically only one or two of these accounts, so no bulk CSV import is planned for this role — add manually via "Add New Judging Admin."
-
-### Judges (`wpdj_judge`)
-
-**No manual per-judge submission assignment** — the current model is *country-scoped*: every judge in a country reviews every shortlisted submission for that country, across all 4 categories. (If you want true panel-splitting — e.g. only 3 of 9 judges per submission — that's a Phase 2 change, see §17.)
+### Shared fields (always shown, regardless of which box(es) are checked)
 
 | Field | Type | Required | Notes |
 |---|---|---|---|
 | Name | Text | ✅ | WP display name |
 | Email | Email | ✅ | WP username/login; also where the welcome email goes |
-| Country | Select (ID / PH / VN) | ✅ | Stored as user meta `judge_country`; controls which submissions they can see |
-| Preferred Language default | Select (native / English) | — | Pre-fills the language dropdown on their login page; they can still switch at login like the current mockup |
 | Password | Auto-generate + email, or set manually | ✅ | Standard WP `wp_hash_password()` |
-| Active | Toggle | ✅ | Deactivate to revoke access without deleting their scoring history |
+| Active | Toggle | ✅ | Deactivate to revoke **all** access at once without deleting the account or their scoring history |
 
-**List table** — filterable by Country, with a "submissions scored / total assigned" progress column (same number as the front-end judge progress table).
+**List table** — one list, filterable by Access (Judging Admin / Judge / Both) and, when Judge access applies, by Country — with a "submissions scored / total assigned" progress column for any row with Judge access (same number as the front-end judge progress table). A dual-access user shows up whenever either filter matches.
+
+**Login behaviour for a dual-access user:** the same WordPress credentials work at both `login-admin.html` and their assigned country's `login-{country}.html` — each page's existing capability check (`current_user_can('wpdj_admin')` / `current_user_can('wpdj_judge')`, see §13) only cares whether that specific capability is present, so no change is needed there for a user who holds both. They simply pick whichever front-end entry point matches what they want to do that session.
+
+There are typically only one or two Judging-Admin-only accounts, so bulk CSV import (§10) only covers Judge access — a Judging Admin checkbox still has to be ticked by hand on an existing/new user if that combination is ever needed.
 
 ---
 
@@ -253,7 +247,7 @@ Separate tool from Submissions import since judges are WP Users, not a CPT.
 **CSV columns:** `name, email, country, language, active`
 
 - One row per judge (up to however many you need — the mockup ships 3 per country as a demo, but the import isn't hardcoded to 3).
-- On import: creates a WP user if the email doesn't exist, or updates country/language/active status if it does (upsert by email).
+- On import: creates a WP user with Judge access checked if the email doesn't exist, or updates country/language/active status if it does (upsert by email). If that email already exists with only Judging Admin access checked, the import *adds* Judge access rather than replacing it — it never unchecks a box the CSV doesn't mention.
 - Triggers WordPress's standard "your account has been created" email, or a custom-branded welcome email with their login URL — decide which in [Open Questions](#18-open-questions-before-development-starts).
 
 ---
@@ -303,9 +297,11 @@ Either way, this only covers **plugin-owned UI chrome** — nominee-submitted co
 
 | Role slug | Capability | Who | wp-admin access |
 |---|---|---|---|
-| `administrator` (built-in WP role) | Full CRUD on Submissions, Categories, Countries; create/manage Judging Admin accounts; create/import Judge accounts; view/override all Scores; import/export | The real WordPress Administrator (site owner/dev) | ✅ Full "Judging Awards" menu |
+| `administrator` (built-in WP role) | Full CRUD on Submissions, Categories, Countries; create/manage front-end User accounts (checking either or both access boxes, §9); view/override all Scores; import/export | The real WordPress Administrator (site owner/dev) | ✅ Full "Judging Awards" menu |
 | `wpdj_admin` | View aggregated progress across all countries via the front-end Admin Dashboard; export CSVs. **No CRUD capability on anything, no wp-admin access of any kind.** | Judging Admin (e.g. SwipeRx program manager) | ❌ None — front-end only, via `login-admin.html` |
 | `wpdj_judge` | View/score submissions matching their own `judge_country` only | Country judges | ❌ None — front-end only |
+
+`wpdj_admin` and `wpdj_judge` are **independent WordPress roles, not mutually exclusive** — WordPress natively supports assigning more than one role to a single user (via `add_role()`), which is exactly what checking both access boxes on the same account in §9 does under the hood. Each front-end page only ever checks for the one capability it cares about (`current_user_can('wpdj_admin')` on `admin-dashboard.html`, `current_user_can('wpdj_judge')` on the judge pages), so a dual-role user is indistinguishable from a single-role user from either page's point of view — it just happens to pass both checks.
 
 On plugin activation, the "Judging Awards" wp-admin menu's capabilities are granted to the built-in `administrator` role automatically, so the real site owner is never locked out regardless of the specific capability names the plugin registers. `wpdj_admin` and `wpdj_judge` are intentionally kept capability-free in wp-admin — they exist only to gate what each front-end page shows.
 
@@ -317,12 +313,12 @@ On plugin activation, the "Judging Awards" wp-admin menu's capabilities are gran
 
 ```
 submission_code, country, category, entry_type, shortlisted, internal_notes,
-initiative_title, area_of_practice, about, impact, who_benefited,
+initiative_title, area_of_practice, about, impact, who_benefited, supporting_materials,
 social_handle, platform, post_date, post_url, post_caption, hashtags_used,
 swiperx_tagged, campaign_link_included, likes, comments, shares
 ```
 
-Cat 1–3 rows leave the `social_handle` → `shares` columns blank; Cat 4 rows leave `initiative_title` → `who_benefited` blank. The importer only enforces "required" per-category, not across the whole row.
+Cat 1–3 rows leave the `social_handle` → `shares` columns blank; Cat 4 rows leave `initiative_title` → `supporting_materials` blank. The importer only enforces "required" per-category, not across the whole row.
 
 ### Judges import
 
