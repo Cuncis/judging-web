@@ -77,6 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const key = el.dataset.field;
       if (key === 'hashtags') {
         el.innerHTML = (currentItem.hashtags || []).map((t) => `<span class="tag-pill">${t}</span>`).join('');
+      } else if (key === 'materials') {
+        el.innerHTML = currentItem.materialsUrl
+          ? `<a href="${currentItem.materialsUrl}" target="_blank" rel="noopener">Click here</a>`
+          : '-';
       } else {
         const value = useViContent && currentItem.vi && currentItem.vi[key] !== undefined
           ? currentItem.vi[key]

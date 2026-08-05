@@ -85,6 +85,8 @@
     'About This Initiative': { id: 'Tentang Inisiatif Ini', fil: 'Tungkol sa Inisyatibong Ito', vi: 'Về sáng kiến này' },
     'Impact': { id: 'Dampak', fil: 'Epekto', vi: 'Tác động' },
     'Who Benefited': { id: 'Siapa yang Diuntungkan', fil: 'Sino ang Nakinabang', vi: 'Đối tượng hưởng lợi' },
+    'Supporting Materials': { id: 'Materi Pendukung', fil: 'Mga Sumusuportang Materyal', vi: 'Tài liệu hỗ trợ' },
+    'Click here': { id: 'Klik di sini', fil: 'I-click dito', vi: 'Nhấn vào đây' },
     'Post Date': { id: 'Tanggal Posting', fil: 'Petsa ng Post', vi: 'Ngày đăng' },
     'Post URL': { id: 'URL Postingan', fil: 'URL ng Post', vi: 'URL bài đăng' },
     'Tags': { id: 'Tag', fil: 'Mga Tag', vi: 'Thẻ' },

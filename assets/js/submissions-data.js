@@ -31,6 +31,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Trained a group of patient volunteers as peer educators to run monthly diabetes self-management circles, covering blood glucose monitoring, foot care, and diet basics.',
       impact: '18 peer-led sessions reached 240 patients; average self-reported understanding scores rose by 30% on post-session quizzes.',
       who: 'Newly diagnosed Type 2 diabetes patients and their family caregivers.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Chương trình Giáo dục viên Đồng đẳng về Tự Quản lý Bệnh Tiểu đường',
         area: 'Dược cộng đồng, Quản lý Bệnh mạn tính',
@@ -47,6 +48,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Delivered a 6-part barangay hall talk series on reading prescription labels, storing medicines safely, and avoiding common drug interactions.',
       impact: 'Over 300 attendees across 6 barangays; 92% of surveyed attendees could correctly explain dosage timing afterward.',
       who: 'General barangay residents, with a focus on households with elderly members.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Chuỗi Buổi Nói chuyện Sức khỏe tại Khu phố về Sử dụng Thuốc Đúng cách',
         area: 'Dược cộng đồng, Tiếp cận Vùng nông thôn',
@@ -63,6 +65,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Launched a monthly medication literacy workshop series across five barangay health centres, teaching patients how to read prescription labels, understand dosage timing, and recognise common drug interactions using plain-language visual aids.',
       impact: 'Over 600 patients attended across 12 sessions in 6 months. Post-workshop surveys showed a 45% improvement in correct medication self-administration and a marked drop in reported adherence errors.',
       who: 'Elderly patients on chronic polypharmacy regimens, and caregivers of patients with limited health literacy.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Hội thảo Nâng cao Hiểu biết về Thuốc cho Cộng đồng',
         area: 'Dược cộng đồng, Tiếp cận Vùng nông thôn',
@@ -79,6 +82,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Partnered with two public high schools to run a weekend bootcamp teaching teens how to safely use over-the-counter medicines and recognise when to see a pharmacist.',
       impact: '150 students trained across 2 schools; post-bootcamp survey showed 85% could correctly identify unsafe OTC combinations.',
       who: 'High school students aged 15-18 and their homeroom advisers.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Trại Huấn luyện Hiểu biết Sức khỏe cho Thanh thiếu niên',
         area: 'Hợp tác Y tế Học đường',
@@ -95,6 +99,7 @@ window.WPDJ_SUBMISSIONS = {
       about: "Set up a dedicated weekly 'Medicine Safety Corner' at the pharmacy counter offering one-on-one pill organizer setup and plain-language dosage reviews for senior citizens.",
       impact: 'Served 95 senior patients over 4 months; caregiver-reported missed-dose incidents dropped noticeably among repeat visitors.',
       who: 'Senior citizens on multiple daily medications and their caregivers.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Góc An toàn Thuốc cho Người Cao tuổi',
         area: 'Chăm sóc Người Cao tuổi',
@@ -111,6 +116,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Developed colour-coded, icon-based pill organizer charts and one-on-one coaching sessions for patients with low reading literacy.',
       impact: 'Coached 40 patients one-on-one; caregivers reported clearer understanding of dosing schedules within the first two weeks.',
       who: 'Patients with limited literacy managing multiple daily medications.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Hướng dẫn Sử dụng Hộp chia Thuốc bằng Hình ảnh cho Bệnh nhân Hạn chế Đọc viết',
         area: 'Hiểu biết Y tế',
@@ -127,6 +133,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Ran pop-up education clinics at prenatal check-up sites covering safe medicine use during pregnancy and breastfeeding.',
       impact: 'Reached 110 expectant and new mothers across 5 pop-up sessions; follow-up calls showed high recall of key safety messages.',
       who: 'Pregnant women and breastfeeding mothers in the surrounding community.',
+      materialsUrl: null,
       vi: {
         title: 'Phòng khám Lưu động Giáo dục Sức khỏe Bà mẹ',
         area: 'Sức khỏe Bà mẹ & Trẻ em',
@@ -143,6 +150,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Partnered with a local manufacturing plant to deliver lunch-hour talks on managing common workplace ailments and OTC medicine safety.',
       impact: '8 sessions delivered to over 200 factory workers; plant HR reported an uptick in employees consulting the on-site pharmacist.',
       who: 'Shift workers at a partner manufacturing facility.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Chuỗi Buổi Học Sức khỏe Giờ Nghỉ trưa tại Nơi làm việc',
         area: 'Sức khỏe Nghề nghiệp',
@@ -159,6 +167,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Supervised pharmacy students in running mobile health caravans at elementary schools, teaching basic hygiene and safe medicine handling to children.',
       impact: 'Visited 4 elementary schools reaching roughly 500 pupils; teachers reported improved handwashing and medicine-safety awareness.',
       who: 'Elementary school pupils and their teachers.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Đoàn Chăm sóc Sức khỏe Học đường do Sinh viên Dược Dẫn dắt',
         area: 'Hợp tác Học thuật - Cộng đồng',
@@ -175,6 +184,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Introduced a standing weekly Q&A corner where patients with hypertension and diabetes could drop by for quick medicine-related questions without an appointment.',
       impact: 'Averaged 25 walk-in consultations per week over 3 months; several patients reported catching missed refills earlier as a result.',
       who: 'Patients managing hypertension and diabetes in the surrounding area.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Góc Hỏi đáp về Bệnh Mạn tính tại Quầy Dược',
         area: 'Hỗ trợ Bệnh Mạn tính',
@@ -194,6 +204,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Installed a secure after-hours medicine locker outside the pharmacy so night-shift workers and emergency patients could collect pre-ordered essential medicines when the counter is closed.',
       impact: '142 after-hours pickups in the first quarter; reduced reported missed-dose incidents among shift workers relying on the service.',
       who: 'Night-shift workers and patients needing medicines outside regular pharmacy hours.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Tủ khóa Lấy Thuốc Ngoài giờ cho Người Làm ca Đêm',
         area: 'Khả năng Tiếp cận & Sẵn có',
@@ -210,6 +221,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Deployed a mobile pharmacy van to reach flood-prone communities that regularly lose access to their usual pharmacy during rainy season.',
       impact: 'Reached 6 flood-affected communities so far this season with essential medicine restocking.',
       who: 'Residents of flood-prone barangays temporarily cut off from regular pharmacy access.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Xe Dược Lưu động cho Vùng Thường xuyên Ngập lụt',
         area: 'Tiếp cận Ứng phó Thiên tai',
@@ -226,6 +238,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Set up a rotating network of free blood pressure screening booths across partner sari-sari stores in underserved areas.',
       impact: 'Screening data collection is ongoing across the booth network.',
       who: 'Residents without regular access to primary care screening.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Mạng lưới Quầy Đo Huyết áp Miễn phí',
         area: 'Tầm soát Phòng ngừa',
@@ -242,6 +255,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Organised a volunteer-supported doorstep medicine delivery route for elderly patients who are unable to travel to the pharmacy.',
       impact: 'Completed over 200 deliveries to 35 regular homebound patients with zero missed refill reports.',
       who: 'Homebound elderly patients and persons with mobility limitations.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Giao Thuốc tận Nhà cho Người Cao tuổi Không thể Di chuyển',
         area: 'Tiếp cận Chăm sóc tại Nhà',
@@ -258,6 +272,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Introduced a sliding-scale pricing program for a defined list of essential maintenance medicines based on documented household income.',
       impact: 'Program enrollment and impact tracking are still in early stages.',
       who: 'Low-income patients on long-term maintenance medication.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Chương trình Định giá Linh hoạt cho Thuốc Thiết yếu',
         area: 'Khả năng Chi trả',
@@ -274,6 +289,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Launched a telepharmacy hotline allowing patients in island barangays without a resident pharmacist to consult by phone before travelling.',
       impact: 'Fielded 85 consultation calls in the pilot period, avoiding an estimated 40 unnecessary boat trips to the mainland pharmacy.',
       who: 'Residents of island barangays with no local pharmacist access.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Đường dây Tư vấn Dược từ Xa cho Khu phố Đảo',
         area: 'Tiếp cận Y tế Từ xa',
@@ -290,6 +306,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Deployed a solar-powered self-care kiosk to remote barangays on a rotating weekly schedule, offering basic health screenings and self-care product access where the nearest pharmacy is over an hour away.',
       impact: 'Served 5 barangays on a rotating basis, reaching an estimated 320 residents who previously had no nearby self-care access point.',
       who: 'Residents of remote barangays without a nearby pharmacy.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Ki-ốt Tự Chăm sóc Lưu động cho Khu phố Vùng sâu',
         area: 'Dược cộng đồng, Tiếp cận Vùng nông thôn',
@@ -306,6 +323,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Set up a weekend pop-up pharmacy counter inside a busy public market to reach vendors and shoppers who rarely visit a fixed pharmacy location.',
       impact: 'Pop-up attendance is being tracked over the current market season.',
       who: 'Market vendors and shoppers with limited time to visit a fixed pharmacy.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Nhà Thuốc Lưu động Cuối tuần tại Chợ Công cộng',
         area: 'Tiếp cận tại Chợ',
@@ -322,6 +340,7 @@ window.WPDJ_SUBMISSIONS = {
       about: "Partnered with a local tricycle drivers' association to offer same-day medicine delivery to households in areas without nearby transport.",
       impact: 'Early rollout covering 3 routes, with delivery volume increasing week over week.',
       who: 'Households in transport-limited areas needing same-day medicine delivery.',
+      materialsUrl: null,
       vi: {
         title: 'Hợp tác với Tài xế Xe lôi Địa phương để Tiếp cận Thuốc',
         area: 'Giao hàng Chặng cuối',
@@ -338,6 +357,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Piloted a 24-hour hotline connecting callers to an on-call pharmacist for urgent medicine availability questions outside normal hours.',
       impact: 'Handled 60 after-hours calls in the pilot month, resolving most without requiring an emergency room visit.',
       who: 'Patients facing urgent medicine needs outside normal pharmacy hours.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Thí điểm Đường dây Nóng Thuốc Khẩn cấp 24 giờ',
         area: 'Tiếp cận Khẩn cấp',
@@ -357,6 +377,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Developed a standardized referral checklist and pathway for pharmacy staff to quickly escalate suspected dengue cases to the nearest health centre.',
       impact: 'Pathway is newly implemented; early cases have been referred using the new checklist.',
       who: 'Patients presenting with dengue warning signs at the pharmacy counter.',
+      materialsUrl: null,
       vi: {
         title: 'Quy trình Chuyển tuyến Chuẩn hóa cho Ca Nghi ngờ Sốt xuất huyết',
         area: 'Chuyển tuyến & Báo động Khẩn',
@@ -373,6 +394,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Developed and trained staff on a structured protocol for recognising high-risk symptoms at the counter and escalating patients to the nearest clinic before a condition worsens.',
       impact: 'Protocol has been in use for two months, with several documented cases of timely escalation for symptoms that could have otherwise been missed.',
       who: 'Walk-in patients presenting with symptoms that may require urgent care.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Quy trình Báo động Sớm cho Triệu chứng Nguy cơ Cao',
         area: 'Chuyển tuyến & Báo động Khẩn',
@@ -389,6 +411,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Created a red-flag symptom checklist to help pharmacy staff consistently identify when a walk-in patient needs urgent referral rather than OTC advice.',
       impact: 'Checklist is now in use at the counter; impact tracking is in early stages.',
       who: 'Walk-in patients presenting with potentially serious symptoms.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Danh mục Triệu chứng Cảnh báo do Dược sĩ Xây dựng',
         area: 'Tầm soát Lâm sàng',
@@ -405,6 +428,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Formalised a cross-referral partnership with two nearby Rural Health Units to streamline patient hand-off for cases beyond pharmacy scope.',
       impact: 'Partnership recently signed; first referral cycle is underway.',
       who: 'Patients needing care beyond what the pharmacy can safely provide.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Hợp tác Chuyển tuyến Song phương với các Trạm Y tế Lân cận',
         area: 'Điều phối Chăm sóc',
@@ -421,6 +445,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Introduced follow-up phone calls 48 hours after a pharmacist refers a patient elsewhere, to confirm they completed the recommended visit.',
       impact: 'Follow-up call program has just launched.',
       who: 'Patients referred out from the pharmacy for further care.',
+      materialsUrl: null,
       vi: {
         title: 'Chương trình Gọi điện Theo dõi Sau Tư vấn',
         area: 'Tính Liên tục trong Chăm sóc',
@@ -437,6 +462,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Designed a pocket-sized warning sign card handed to patients buying OTC symptom relief, listing signs that mean they should seek immediate care.',
       impact: 'Cards are being distributed at the counter; recall testing is planned.',
       who: 'Patients self-medicating for common symptoms.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Thẻ Dấu hiệu Cảnh báo cho Bệnh nhân Tự Dùng Thuốc',
         area: 'Giáo dục Bệnh nhân & Chuyển tuyến',
@@ -453,6 +479,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Set up a dedicated triage corner where a pharmacist does a brief structured check before deciding between OTC advice, monitoring, or referral.',
       impact: 'Triage corner recently opened; case volume is being logged.',
       who: 'Walk-in patients with undifferentiated health concerns.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Góc Phân loại Cộng đồng cho Các Vấn đề Sức khỏe Đến Trực tiếp',
         area: 'Phân loại Cộng đồng',
@@ -469,6 +496,7 @@ window.WPDJ_SUBMISSIONS = {
       about: "Maintains a simple logbook tracking chronic patients referred to specialists, to prompt follow-up if they haven't returned with an update.",
       impact: 'Logbook implementation is in its first month.',
       who: 'Chronic disease patients requiring specialist follow-up.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Sổ Theo dõi Chuyển tuyến cho Bệnh nhân Mạn tính',
         area: 'Theo dõi Chuyển tuyến',
@@ -485,6 +513,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Built a referral network with two local diagnostic clinics to fast-track lab work for patients the pharmacist flags as needing further testing.',
       impact: 'Network agreements are signed; first referrals are being processed.',
       who: 'Patients needing diagnostic testing beyond pharmacy scope.',
+      materialsUrl: null,
       vi: {
         title: 'Mạng lưới Hợp tác với các Phòng khám Chẩn đoán Địa phương',
         area: 'Tiếp cận Chẩn đoán',
@@ -501,6 +530,7 @@ window.WPDJ_SUBMISSIONS = {
       about: 'Coordinates occasional home visits for bedridden patients when a caregiver reports symptoms that may need pharmacist assessment before deciding on further care.',
       impact: 'Program has completed its first handful of home visits.',
       who: 'Bedridden patients and their primary caregivers.',
+      materialsUrl: 'https://drive.google.com/file/d/1SmhB9TDqyQ-BJ5JxUyG_CzfaM6WunnrK/view?usp=sharing',
       vi: {
         title: 'Chương trình Thăm khám tại Nhà cho Bệnh nhân Nằm liệt Giường',
         area: 'Báo động Khẩn tại Nhà',
